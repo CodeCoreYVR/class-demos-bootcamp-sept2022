@@ -1,0 +1,165 @@
+To Open Terminal:
+
+a) MacOS - COMMAND + SPACE, then type terminal
+b) Ubuntu - CTRL + ALT + T
+c) VSCode and Nimbus - Click "Terminal", then "New Terminal"
+
+echo:
+
+echo prints text to the screen
+$ echo winter is coming
+winter is coming
+
+pwd:
+
+pwd (print working directory) prints the full path beginning from root to your current location
+$ pwd
+/Users/jill/code
+
+ls:
+
+ls (list) lists all files & directories in your current directory
+$ ls
+Correction                 LiveDemos
+Slides                     Labs
+Projects                   Summary Notes
+
+cd:
+
+cd (change directory) changes pwd to path on right. Try!
+$ cd /       👈🏻will take you to root dir
+$ cd /Users/jill
+$ cd ~		👈🏻will take you to home dir
+What comes after cd is a path
+$ cd Desktop
+$ cd .
+$ cd ..
+
+mkdir:
+
+mkdir (make directory) creates a directory
+$ cd ~
+$ mkdir code_core
+$ cd code_core
+$ mkdir cli/basics
+$ mkdir -p cli/basics
+
+open (MacOS only):
+
+open opens a file or directory with your OS' default program
+$ open .
+Opens the current directory in Finder
+$ open rails_tutorial.pdf
+Opens the PDF file in Preview
+
+code . :
+
+If you install the Shell Command in VSCode, you can use code . to open your current directory in VSCode
+To install the shell command:
+a) MacOS: COMMAND + SHIFT + P and enter: >Shell Command: Install 'code' command in PATH
+b) Windows: Ctrl + P and enter: >Shell Command: Install 'code' command in PATH 
+
+Path:
+
+Some paths are special.
+The . is the path to your pwd.
+$ cd .
+.. is the path to the parent dir of pwd.
+$ cd ..
+~ is the path of your user's home dir.
+$ cd ~
+/ is the root. The common ancestor.
+$ cd /
+- is the path to the previous pwd.
+$ cd -
+
+touch:
+
+touch creates an empty file or updates its last modified date
+$ touch the_sun
+
+mv:
+
+mv (move) moves file from source path to target path
+$ cd ~/code_core
+$ mv file_a cli
+Renames source file if target doesn't end in a directory
+$ mv file_b file_c
+
+cp:
+
+cp (copy) copies file from a source to a target
+$ cd ~/code_core
+$ touch file_a
+$ cp file_a file_b
+Copy directories with the -r option
+$ cp -r cli/ git
+
+options:
+
+Most commands can take options. Options are typically prefixed with - or --.
+
+-a:
+-a option means "all"
+when using the -a option with ls command, it will list all files, including hidden files prefixed with .
+Example: 
+$ ls
+file_a.txt file_b.txt
+$ ls -a
+file_a.txt file_b.txt .hidden_file
+
+cat:
+
+cat (concatenate) joins files together and prints them to the screen
+$ cat confused
+What's going on!?
+
+less:
+
+less prints contents of file to screen with a navigation interface if the file is large
+$ less confused
+Use less for man
+$ man -p less man
+
+clear:
+
+clear empties your terminal screen of characters
+$ clear
+Also, pressing CTRL+L clears your terminal screen.
+
+>>:
+
+>> (redirect notation) send output of a command somewhere else. When used on a file, it appends text to it.
+$ echo "Every flight begins" >> confused
+$ echo "with a fall" >> confused
+Look inside the file with cat
+$ cat confused
+Every flight begins
+with a fall
+
+>:
+
+> like >>, but replaces the contents of the file
+$ echo "Every flight begins" > confused
+$ echo "with a fall" > confused
+Look inside the file with cat
+$ cat confused
+with a fall
+
+user account:
+
+whoami prints your username
+$ whoami
+jill
+
+sudo:
+
+sudo (superuser do) allows you to act as the most powerful user on the system for a command
+$ sudo touch make_me_a_sandwich
+$ ls -lha
+$ sudo rm make_me_a_sandwich
+
+Don't use this unless you know what you're doing!
+
+
+
