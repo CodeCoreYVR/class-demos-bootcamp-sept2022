@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- doctype is not an html element but putting this tag here tells the browser
+that you are using HTML5.  It is a declaration, not a tag-->
+
+<!--To get this whole boilerplate (template), you can do the following:
+type an exclamation "!" and then hit the tab key-->
+
+<!--To open live server, you can right click on the file and select "Open with live server"
+or you can key in "Command shift P"(Mac) or "Ctrl Shift P" and 
+then type ">Live Server: Open with Live Server"-->
+<html lang="en">
+    <!--html tag is the root tag of any html document-->
+    <head>
+        <!--The head element contains all the information not displayed
+        i.e. the brain of the body-->
+        <!--head is the meta information about the document-->
+        <!--head and body tags are the chidren elements of the html tag-->
+        <!--the meta tags and title tag are children of the head element
+        and are decendants of the html element-->
+        <meta charset="UTF-8">
+        <!-- By setting charset to "utf-8", we can use any other language,
+        otherwise we can only use the English language characters-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--
+            The viewport is the user's visible area of a web page.
+            The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
+            This gives the browser instructions on how to control the page's dimensions and scaling.
+        -->
+        <title>HTML & CSS I</title>
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <style>
+            html {
+                font-family:Arial, Helvetica, sans-serif;
+            }
+            * { 
+                font-family: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <!--The body contains all the content displayed on the browser-->
+        <!--the body is the visible (or rendered) content of the document-->
+        <header>
+            <nav>
+                <a href="https://www.google.com/">Google</a> 
+                <a class="hello" href="/home.html">Home</a>
+                <a href="#123">Something</a>
+            </nav>
+        </header>
+        <article>
+            <!-- This is an html comment.  You can place it anywhere in html document and it will not show up on the browser-->
+            <h1 style="background-color: red;">This is an h1 tag - header 1</h1>
+            <p>This is a paragraph. <em>This is emphasized.</em><strong>This is strong.</strong><q>This is quoted text.</q><abbr title="Abbreviation">Abb</abbr></p>
+            <h3>Below is a blockquote of Lorem ipsum</h3>
+            <blockquote>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic consequuntur nesciunt, modi quis possimus sit corrupti, maxime alias dolor facere debitis rerum ullam. Doloremque, neque sit non in dolorem nostrum.
+            </blockquote>
+            <div>A div works like a section, and is also a block tag</div>
+        </article>
+        <aside>
+            <h2>My Ordered list</h2>
+            <ol class="olc">
+                <li>Item 1</li>
+                <li class="bye">Item 2</li>
+                <li>Item 3</li>
+            </ol>
+            <h2>My unordered list</h2>
+            <ul>
+                <li class="bye"><h1>h1 header</h1></li>
+                <li><h2>h2 header</h2></li>
+                <li><h3>h3 header</h3></li>
+                <li class="hello"><h4>h4 header</h4></li>
+                <li><h5>h5 header</h5></li>
+                <li><h6>h6 header</h6></li>
+                <li><h7>h7 header does not exists so it will display regular text</h7></li>
+            </ul>
+            <p>Quick paragraph</p>
+        </aside>
+        <section>
+            <h2>Form Section</h2>
+            <form action="" method="">
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="Example input" />
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <h4>Select an option to show that you are not a robot</h4>
+                <div>
+                    <input type="radio" id="optionA" name="drone" value="optionA">
+                    <label for="optionA" id="optionA">optionA</label>
+                </div>
+                <div>
+                    <input type="radio" id="optionB" name="drone" value="optionB">
+                    <label for="optionB" id="optionB">optionB</label>
+                </div>
+                <div>
+                    <input type="radio" id="optionC" name="drone" value="optionC">
+                    <label for="optionC" id="optionC">optionC</label>
+                </div>
+                <input type="submit" value="Submit" />
+            </form>
+        </section>
+        <section>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80" alt="dog picture" />
+            </figure>
+            <h3>Block of code</h3>
+            <code>
+                function add(num1, num2){
+                    let total = num1 + num2
+                    return total
+                }
+            </code>
+            <h3>Media Area</h3>
+            <div>
+                <audio controls>
+                    <source src="path_to_sound_file.mp3">
+                </audio>
+            </div>
+            <div>
+                <label for="file">File progress:</label>
+                <progress id="file" value="70" max="100">70%</progress>
+            </div>
+            <div>
+                <h3>Draw figures with canvas</h3>
+                <canvas width="320" height="240"></canvas>
+            </div>
+        </section>
+        <footer>
+            <small>Copyright of CodeCore</small>
+        </footer>
+    </body>
+</html>
+
+

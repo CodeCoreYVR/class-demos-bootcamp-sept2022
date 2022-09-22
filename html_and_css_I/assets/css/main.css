@@ -1,0 +1,59 @@
+p   {
+    background-color: aqua;
+}
+
+#optionA {
+    background-color: salmon;
+}
+
+.olc {
+    background-color: blueviolet;
+}
+
+h2,h5,h3 {
+    background-color: pink;
+}
+
+li.hello {
+    background-color: chartreuse;
+}
+
+ul > li.bye {
+    background-color: darkmagenta;
+}
+
+ol > li {
+    font-size: 2em;
+}
+
+article h3 {
+    font-size: 0.5em;
+}
+
+/* visited link */
+a:visited {
+    color: hotpink;
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+a:hover {
+    color:blue;
+}
+
+div:hover {
+    background-color: hotpink;
+}
+
+/* Select all child elements except for the last one */
+
+ol > *:not(:last-child){
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+
