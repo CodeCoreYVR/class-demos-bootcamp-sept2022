@@ -1,8 +1,89 @@
-* {
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Ubuntu&display=swap');
+
+/* * {
     border: thin dotted greenyellow;
+} */
+
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
 .hidden {
     display: none;
 }
 
+a {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    float: right;
+}
+
+/*================= Flexbox CSS: ================================*/
+
+/* Grab the flex-container which is the parent element */
+/* Any element with the property set to display:flex is considered a "Flex Container" */
+
+.flex-container {
+   display: flex; 
+   /* the above is necessary to make this element a flex container */
+   border: thin dotted black;
+   flex-direction: row;
+   /* the above sets the direction of the main axis that dictates the direction
+   and layout of the flex items.  row (left to right) is the default direction
+   and therefore the main axis default is left to right */
+   /* other directions: column, row-reverse, colomn-reverse */
+
+   flex-wrap: wrap;
+
+   /*flex-flow: row wrap; */
+   /* the above is shorthand for combination of flex-direction and flex-wrap */
+
+   justify-content: space-between;
+   /* justify-content is used to align flex-items with respect to the main axis */
+
+   align-items: center;
+   /* Align-items is used to alingn flex-items along the cross-axis */
+   /* you can specofy the gap size between items like this: */
+   gap: 50px;
+   row-gap: 10px;
+
+}
+
+#fi {
+    width: 200px;
+    height: 200px;
+    border: thin dotted hotpink;
+}
+
+/* .num-seven {
+    order: 2;
+}
+
+.num-eleven {
+    order: -3;
+} */
+
+.num-one, .num-three, .num-five, .num-nine, .num-eleven, .num-thirteen {
+    order: 2
+}
+
+.num-two {
+    order: 3;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .num-six {
+    flex-shrink: 5;
+} */
+
+p.two {
+    align-self:flex-start;
+}
