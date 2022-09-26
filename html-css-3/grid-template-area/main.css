@@ -1,0 +1,35 @@
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+  "sidebar header header"
+  "sidebar content content"
+  "sidebar content content"
+  "sidebar footer footer"
+  ;
+}
+
+.section {
+  border: #000 1px solid;
+  min-height: 20vh;
+  padding: 1em;
+}
+
+.header{
+  background-color: pink;
+  grid-area: header;
+}
+
+.sidebar {
+  background-color: skyblue;
+  grid-area: sidebar;
+}
+
+.content {
+  background-color: yellowgreen;
+  grid-area: content;
+}
+
+.footer {
+  background-color: grey;
+  grid-area: footer;
+}

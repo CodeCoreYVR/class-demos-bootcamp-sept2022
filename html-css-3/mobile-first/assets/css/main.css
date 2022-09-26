@@ -1,0 +1,147 @@
+@import url(reset.css);
+
+/* Mobile first styles */
+
+/* 
+  A mobile-first approach to styling means that styles are applied first to mobile devices. Code for larger screens is usually more complicated than the code(styles) for small screens. Advanced style and other overrides for larger screens are then added into the style sheet via media queries. This approach uses min-width media queries.
+*/
+
+body {
+  font-family: "Thasidth", "Poppins", sans-serif;
+  font-size: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+p, li {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout style */
+
+.branding {
+  width: 5em;
+  background-color: white;
+}
+
+/* 
+  Main Page structure for Mobile 100% width on mobile
+*/
+
+header {
+  align-items: center;
+}
+
+header, article, footer {
+  width: 100%;
+}
+
+header, footer {
+  padding: 2em;
+  background-color: salmon;
+  display: flex;
+  height: 8em;
+}
+
+.nav {
+  width: 95%;
+}
+
+.menu {
+  text-align: right;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+/* Article, Card and button styles */
+
+article {
+  flex: 1;
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+article p {
+  margin-bottom: 1em;
+}
+
+.card {
+  font-size: 1.2em;
+  padding: 2em;
+  background-color: white;
+  line-height: 1.2em;
+  width: 100%;
+  margin-bottom: 1em;
+  min-height: 20em;
+  display: flex;
+  flex-direction: column;
+}
+
+.pullquote {
+  flex: 1;
+}
+
+button {
+  border: 2px solid #eee;
+  background-color: white;
+  padding: 0.75em 0.75em;
+  width: 10em;
+  font-family: "Thasidith", sans-serif;
+  font-size: 0.7em;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+button:hover {
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.image {
+  background-image: url("https://images.unsplash.com/photo-1489367874814-f5d040621dd8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZ1bnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-repeat: unset;
+  background-size: cover;
+}
+
+/* Desktop or iPad styles last */
+
+@media (min-width: 600px) {
+  /* min-width should be at least 600px or more for below styles to work */
+
+  body {
+    background-color: red;
+    padding: 2em;
+  }
+  article {
+    flex-direction: row;
+  }
+  .b-text{
+    order: -1;
+  }
+  .menu {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 700px) {
+  body {
+    background-color: blue;
+  }
+}
