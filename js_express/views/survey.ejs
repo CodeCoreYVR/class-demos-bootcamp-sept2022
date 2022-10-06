@@ -9,6 +9,13 @@
     <body>
         <h1>Survey Form</h1>
         <form action="/submit">
+             <!--
+            When a form submitted, a HTTP request is made by the browser
+            to the URL in the "action" attribute with the data from
+            input fields of the form. If an "action" attribute is not given,
+            the default URL is the current URL. The default HTTP VERB is GET
+            and can be changed to POST using the "method" attribute.
+            -->
             <div>
                 <label for="fullName">What is your name?</label>
                 <input type="text" id="fullName" name="fullName">

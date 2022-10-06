@@ -85,6 +85,13 @@ app.get('/survey', (req, res) => {
 //----Handle the submit of the Surb=vey form---->
 app.get('/submit', (req, res) => {
     // res.render('thank_you')
+    // res.send('thank_you')
+    // `response.send(...)` is helpful when debugging if you
+	// see the contents of object in your browser. Use it
+	// like you would use `console.log(...)`
+	// response.send(request.query);
+    // `request.query` is a property that holds an object
+	// representation of the URL query.
     const fullName = req.query.fullName;
     const favouriteColour = req.query.favouriteColour;
     const favouriteDay = req.query.favouriteDay;
