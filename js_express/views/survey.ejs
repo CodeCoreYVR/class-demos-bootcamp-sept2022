@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Survey</title>
+    </head>
+    <body>
+        <h1>Survey Form</h1>
+        <form action="/submit">
+            <div>
+                <label for="fullName">What is your name?</label>
+                <input type="text" id="fullName" name="fullName">
+            </div>
+            <div>
+                <label for="favouriteColour">What is your favourite colour?</label>
+                <input type="text" id="favouriteColour" name="favouriteColour">
+            </div>
+            <div>
+                <label for="message">What is on your mind?</label>
+                <textarea name="message" id="message" cols="60" rows="5"></textarea>
+            </div>
+            <div>
+                <label for="weekDays">What is your favourite day of the week?</label>
+                <br/>
+                <% const days = [
+                    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+                ] %>
+
+                <% for (let option of days) { %>
+                    <input type="radio" name="favouriteDay" id="<% option %>" value="<%- option %>" />
+                    <label for="<% option %>">"<%- option %>"</label>
+                    </br>
+                <% } %>
+            </div>
+            <input type="submit" value="Send">
+        </form>
+    </body>
+</html>
+

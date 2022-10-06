@@ -77,6 +77,24 @@ app.get('/hello_world', (req, res) => {
     res.send("<h1>Hello World</h1>")
 })
 
+//------Survey Page
+app.get('/survey', (req, res) => {
+    res.render('survey')
+})
+
+//----Handle the submit of the Surb=vey form---->
+app.get('/submit', (req, res) => {
+    // res.render('thank_you')
+    const fullName = req.query.fullName;
+    const favouriteColour = req.query.favouriteColour;
+    const favouriteDay = req.query.favouriteDay;
+    res.render('thank_you', {
+        fullName: fullName,
+        favouriteColour: favouriteColour,
+        favouriteDay: favouriteDay
+    })
+})
+
 //---Set View Engine----------->
 app.set('view engine', 'ejs')
 app.set('views', 'views')
