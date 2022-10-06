@@ -27,6 +27,12 @@
 const express = require('express');
 const app = express();
 
+//------Logging Middleware-------->
+//install morgan middleware to our npm project: npm i morgan
+//now  we require it:
+const logger = require('morgan');
+app.use(logger('dev'));
+
 //------Common methods for App (express app)------->
 // https://expressjs.com/en/4x/api.html#app
 //require ('express') returns a function that returns an instance of an express app
