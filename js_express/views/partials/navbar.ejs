@@ -1,36 +1,37 @@
 <header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/hello_world">Hello World</a>
-            </li>
-            <li>
-                <a href="/survey">Survey</a>
-            </li>
-        </ul>
-        <% if (username) { %>
-            <ul>
-                <li>
-                    <span>Hello, <%- username %>!</span>
-                    <form action="/sign_out" method="POST">
-                        <button type="submit">Sign Out</button>
-                    </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Express App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/hello_world">Hello World</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/survey">Survey</a>
+                </li>
+                <% if (username) { %>
+                    <li class="nav-item active">
+                        <span>Hello, <%- username %>!</span>
+                        <form action="/sign_out" method="POST">
+                            <button type="submit" class='btn btn-outline-dark'>Sign Out</button>
+                        </form>
+                    </li>    
+                <% } else { %>
+                    <li class="nav-item active">
+                        <form action="/sign_in" method="POST">
+                            <input class='form-control mr-2' type="text" name="username">
+                            <button type="submit" class='btn btn-outline-dark'>Sign In</button>
+                        </form>
+                    </li>   
+                <% } %>
             </ul>
-       <% } else { %>
-            <ul>
-                <li>
-                    <form action="/sign_in" method="POST">
-                        <input type="text" name="username">
-                        <button type="submit">Sign In</button>
-                    </form>
-                </li>
-            </ul>   
-       <% } %>
-
+        </div>
     </nav>
 </header>
 <br>
