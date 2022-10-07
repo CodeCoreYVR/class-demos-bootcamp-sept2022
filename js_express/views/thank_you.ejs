@@ -1,6 +1,13 @@
 <%- include("./partials/header.ejs") %>
-        <h1>Thank you for submitting the Survey</h1>
-        <p>Hi, <%- fullName %></p>
-        <p>I see you also like <%- favouriteColour %></p>
-        <p>Let's hang out on <%- favouriteDay %></p>
+    <% if (fullName && favouriteColour && message && favouriteDay) {%>
+        <div style="color: <%- favouriteColour %>;">
+            <h1>Thank you for submitting the Survey</h1>
+            <p>Hi, <%- fullName %></p>
+            <p>I see you also like <%- favouriteColour %>, so I changed the text to your favourite colour.</p>
+            <p>Let's hang out on <%- favouriteDay %></p>
+            <img src="/images/thumbsUp.gif" alt="thumbs up">
+        </div>
+    <% } %>
 <%- include("./partials/footer.ejs") %>
+
+

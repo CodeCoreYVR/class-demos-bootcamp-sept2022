@@ -1,8 +1,36 @@
 <header>
     <nav>
-        <a href="/">Home</a>
-        <a href="/hello_world">Hello World</a>
-        <a href="/survey">Survey</a>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/hello_world">Hello World</a>
+            </li>
+            <li>
+                <a href="/survey">Survey</a>
+            </li>
+        </ul>
+        <% if (username) { %>
+            <ul>
+                <li>
+                    <span>Hello, <%- username %>!</span>
+                    <form action="/sign_out" method="POST">
+                        <button type="submit">Sign Out</button>
+                    </form>
+                </li>
+            </ul>
+       <% } else { %>
+            <ul>
+                <li>
+                    <form action="/sign_in" method="POST">
+                        <input type="text" name="username">
+                        <button type="submit">Sign In</button>
+                    </form>
+                </li>
+            </ul>   
+       <% } %>
+
     </nav>
 </header>
 <br>
