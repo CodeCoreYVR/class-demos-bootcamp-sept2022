@@ -24,6 +24,7 @@
 //this file will hold all of the informtion in order for your project to function
 
 //------Require the express library from the express dependency------>
+const { response } = require('express');
 const express = require('express');
 const app = express();
 
@@ -74,7 +75,8 @@ app.get('/', (req, res) => {
 //first argument is the path
 //second argument is the request handler
 app.get('/hello_world', (req, res) => {
-    res.send("<h1>Hello World</h1>")
+    // res.send("<h1>Hello World</h1>")
+    res.render('hello_world')
 })
 
 //------Survey Page
