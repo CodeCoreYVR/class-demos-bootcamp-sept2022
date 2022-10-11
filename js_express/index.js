@@ -28,6 +28,13 @@
 const express = require('express');
 const app = express();
 
+// Require method-override middleware
+// npm i method-override
+// This enables client to make HTTP request with forms that are not
+// just GET and POST requests (PATCH, DELETE, etc.)
+
+const methodOverride = require("method-override")
+
 //--------------------BODY PARSER and URLENCODED MIDDLEWARE-------------------->
 //To be able to use data from a POST HTTP request, like filling out a form and submitting:
 //Previously we had to add body parser as an extra package but we don't need to install body parser anymore, 
@@ -44,6 +51,18 @@ const app = express();
 app.use(express.urlencoded({extended: true}))
 //It will modify the request object given to routes by adding a property to it named body
 //So request.body will be an object containing the data from our form
+
+// ---------------Method Overrride Middleware--------------
+app.use(methodOverride((req, res) => {
+    if(req.body && req.body._method) {
+        const method = req.body._method;
+        return method
+    }
+}))
+
+// app.use(methodOverride('_method'))
+// ^^This is an alternate way to achieve the above
+// The other code will be commented out in the show.ejs and edit.ejs view pages
 
 //------Cookie Parser------------->
 //req.body.cookie
@@ -98,7 +117,7 @@ const path = require("path")
 //(images, css files, browser-side JS files, etc) 
 //Set up the public directory for these files to reside in
 app.use(express.static(path.join(__dirname, 'public')));
-//__dirname is a global variable available to node thay has the value of the path to your root directory
+//__dirname is a global variable available to node that has the value of the path to your root directory
 
 //static asset middleware will take all the files and directories within /public
 //and serve them publically with their own url
@@ -127,7 +146,7 @@ app.use(logger('dev'));
 //app.patch() -> to listen for a PATCH request from the client
 //app.delete() -> to listen for a DELETE request from the client
 
-//app.method -> method is jiust a generic variable for any HTTP request types
+//app.method -> method is just a generic variable for any HTTP request types
 //supported by express and includes app.get, app.post. etc.
 
 //app.set() -> used to set the application variables.  Mainly used to configure application wide variables
@@ -162,7 +181,7 @@ app.get('/survey', (req, res) => {
     res.render('survey')
 })
 
-//----Handle the submit of the Surb=vey form---->
+//----Handle the submit of the Survey form---->
 app.get('/submit', (req, res) => {
     // res.render('thank_you')
     // res.send('thank_you')
@@ -199,6 +218,10 @@ app.post('/sign_out', (req, res) => {
     res.clearCookie('username');
     res.redirect('/');
 })
+
+// ---------------POST ROUTER ACCESSING POST ROUTES------------------>
+const postRouter = require('./routes/posts')
+app.use('/posts', postRouter)
 
 //---Set View Engine----------->
 app.set('view engine', 'ejs')

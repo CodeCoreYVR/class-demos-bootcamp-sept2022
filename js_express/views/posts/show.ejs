@@ -1,0 +1,27 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="card mb-4">
+  <% if(post.image_url) { %>
+    <img class="card-img-top" src="<%- post.image_url %>" alt="post image">
+  <% } %>
+  <div class="card-body">
+    <h5><%- post.title %></h5>
+    <p class="card-body">
+      <%- post.content %>
+      <em>Seen <%- post.view_count %> times</em>
+    </p>
+    <form action="/posts/<%- post.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" class="btn btn-outline-danger" value="DELETE">
+    </form>
+    <!-- <form method="POST" action="/posts/<%- post.id %>?_method=DELETE" >
+      <input type="submit" class="btn btn-outline-danger" value="DELETE">
+    </form> -->
+    <!-- ^^ This is an alternate way for using method-override,
+       use code that was commented out in index.js -->
+    <a href="/posts/<%- post.id %>/edit">Edit</a>
+  </div>
+</div>
+
+
+<%- include("../partials/footer.ejs") %>

@@ -1,0 +1,10 @@
+<%- include("../partials/header.ejs") %>
+
+<h1>New Post</h1>
+
+<form action="/posts" method="post">
+  <%- include("../partials/formInput.ejs") %>
+  <input type="submit" value="Create post" class="btn btn-outline-success">
+</form>
+
+<%- include("../partials/footer.ejs") %>

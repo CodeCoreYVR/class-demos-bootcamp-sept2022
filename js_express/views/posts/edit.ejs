@@ -1,0 +1,16 @@
+<%- include("../partials/header.ejs") %>
+
+<h1>Edit Post</h1>
+<form action="/posts/<%- post.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <%- include("../partials/formInput.ejs") %>
+  <input type="submit" value="Edit Post" class="btn btn-outline-success">
+</form>
+<!-- <form method="POST" action="/posts/<%- post.id %>?_method=PATCH" >
+  <%- include("../partials/formInput.ejs") %>
+  <input type="submit" value="Edit Post" class="btn btn-outline-success">
+</form> -->
+<!-- ^^ This is an alternate way for using method-override,
+   use code that was commented out in index.js -->
+
+<%- include("../partials/footer.ejs") %>
