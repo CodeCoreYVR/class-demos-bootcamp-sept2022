@@ -2,7 +2,7 @@ counter = 1
 
 # while counter < 11
 #     puts "I'm a counter at #{counter}"
-#     counter += 1 #counter++
+#     counter += 1 #counter = counter + 1
 # end
 
 #numbers 1-50
@@ -10,7 +10,7 @@ counter = 1
 
 # while num <= 50
 #     puts "#{num}"
-#     num += 1 #num++
+#     num += 1 #number = number + 1
 # end
 
 # until counter > 5
