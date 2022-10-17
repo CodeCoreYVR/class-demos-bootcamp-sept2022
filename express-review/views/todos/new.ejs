@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+
+<h1>New Todo</h1>
+
+<form action="/todos" method="post">
+  <%- include("../partials/formInput.ejs") %>
+  <input type="submit" value="Create Todo" class="btn btn-success">
+</form>
+
+<%- include('../partials/footer') %>

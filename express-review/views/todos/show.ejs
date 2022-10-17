@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<div class="card mb-4">
+  <% if(todo.imageUrl) { %>
+    <img class="card-img-top" src="<%- todo.imageUrl %>" alt="todo image">
+  <% } %>
+  <div class="card-body">
+    <h5><%- todo.title %></h5>
+    <p><%- todo.content %></p>
+  </div>
+  <div>
+    <a href="/todos/<%- todo.id %>/edit">Edit Todo</a>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

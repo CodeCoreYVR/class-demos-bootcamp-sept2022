@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h1>Todo List</h1>
+<div class="cards">
+  <% for(let todo of list) { %>
+    <div>
+      <h5>
+        <a href="/todos/<%-todo.id%>"><%- todo.title %></a>
+      </h5>
+      <p><%- todo.content %></p>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>

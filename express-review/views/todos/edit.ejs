@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Todo</h1>
+
+<form action="/todos/<%- todo.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%- include("../partials/formInput.ejs") %>
+  <input type="submit" value="Edit Todo" class="btn btn-success">
+</form>
+
+<%- include('../partials/footer') %>
