@@ -1,0 +1,12 @@
+<h1>Form Example</h1>
+
+<%= form_with do |form| %>
+    Form contents here
+    <br>
+    <%= form.label :query, "Search for:" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+
+<% end %>
+
+
