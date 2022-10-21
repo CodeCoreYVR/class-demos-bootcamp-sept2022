@@ -70,6 +70,8 @@ gem 'pry', '~> 0.14.1'
 # Similar with pry or irb, it's opening a CLI you can type ruby code inside
 # but inside here, you can also use gems installed for this project
 
+gem "faker"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
