@@ -1,6 +1,45 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # ------------------------RESTful Routes----------------------------------
+  # A RESTful route provides mapping from HTTP verbs (like GET, POST, PATCH, PUT, DELETE)
+  # to the controller CRUD actions (create, read, update, destroy)
+
+  # RESTful Routes for Questions resource
+  # index: GET "/resources" - return all records of that resource
+  # show: GET "/resources/:id" returns one instance of the resource
+  # new: GET "/resources/new" - return a view page with form the create a resource
+  # create: POST "/resources" -handle submission to the "new form" and inserts a new resource in the db
+  # edit: GET "/resources/:id/edit" -returns a view to edit an existing resource
+  # update: PATCH "/resource/:id" -handle submission of the "edit form" and update the resource with specific id in the db
+  # destroy: DELETE "resources/:id" - delete a record with specific id from the database
+  #------------------------------------------------------------------------------------
+
+  # new
+  # get 'questions/new'
+
+  # create
+  # post 'questions', to: 'question#create', as: :create_question
+
+  # index
+  # get 'questions', to: 'question#index'
+
+  # show
+  # get 'questions/:id', to: 'questions#show', as: :question
+
+  # edit
+  # get 'questions/:id/edit', to: 'questions#edit', as: :edit_question
+
+  # update
+  # patch 'questions/:id', to: 'questions#update'
+
+  # destroy
+  # delete 'questions/:id', to: 'question#destroy', as: :delete_question
+
+  resources :questions
+  # ^^ this generates all the RESTful routes that CRUD requires for us
+  # make sure to check /rails/info/routes
+
   # Defines the root path route ("/")
   # root "articles#index"
 

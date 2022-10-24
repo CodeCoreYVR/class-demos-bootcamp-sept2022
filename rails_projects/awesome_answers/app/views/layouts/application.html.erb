@@ -15,7 +15,10 @@
       <%= link_to "Welcome", root_url %>
       <%= link_to "Goodbye", what_path %>
       <%= link_to "Form Example", form_example_path %>
+      <%= link_to 'Questions Index Page', questions_path %>
+      <%= link_to 'New Question Page', new_question_path %>
     </nav>
+    <%= flash[:success] || flash[:error] %>
     <%= yield %>
   </body>
 </html>

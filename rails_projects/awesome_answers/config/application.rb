@@ -33,5 +33,9 @@ module AwesomeAnswers
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Don't generate helper files.
+    config.generators.helper = nil
+    
   end
 end

@@ -1,0 +1,10 @@
+<h1>Questions Index Page</h1>
+<p>I am found in the questions#index controller actions</p>
+<p>This will be my route: get('/questions', to: 'questions#index', as: :questions_index)</p>
+
+<% @questions.each do |question| %>
+  <div>
+    <h2><%= link_to question.title, question %></h2>
+    <%#             older syntax -> question_path(question) %>
+  </div>
+<% end %>
