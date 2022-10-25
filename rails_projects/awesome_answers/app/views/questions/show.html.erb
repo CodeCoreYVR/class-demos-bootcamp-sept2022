@@ -4,4 +4,35 @@
 <p><small>Created at: <%= @question.created_at %>, Views: <%= @question.view_count %></small></p>
 
 <%= link_to 'Edit', edit_question_path(@question) %>
-<%= button_to 'Delete', question_path(@question), method: :delete, form: {data: {turbo_confirm: "Are you sure?"}} %>
+<%= button_to 'Delete', question_path(@question), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+
+<ul>
+  <% @answers.each do |answer| %>
+    <li>
+      <%= answer.body %>
+      <small>
+        Answered <%= time_ago_in_words(answer.created_at)%> ago 
+      </small>
+      <%= link_to "Delete", question_answer_path(@question.id, answer.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
+    <br>
+  <% end %>
+</ul>
+<hr>
+<h3>Write an answer</h3>
+<% if @answer.errors.any? %>
+  <ul>
+    <% @answer.errors.full_messages.each do |msg| %>
+      <li> <%= msg %></li>
+    <% end %> 
+  </ul>
+<% end %>
+
+<%= form_with(model:[@question, @answer]) do |f| %>
+  <div>
+    <%= f.label :body %>
+    <br>
+    <%= f.text_area :body, cols: 50, rows: 5 %>
+  </div>
+  <%= f.submit "Answer" %>
+<% end %>

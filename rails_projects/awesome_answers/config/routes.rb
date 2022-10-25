@@ -36,7 +36,17 @@ Rails.application.routes.draw do
   # destroy
   # delete 'questions/:id', to: 'question#destroy', as: :delete_question
 
-  resources :questions
+  resources :questions do
+    # Routes written inside of a block passed a resource method will be prefixed 
+    # by a path corresponding to the passed in symbol
+    # in this case, all nested routes will be prefixed with 'questions/:question_id'
+
+    # post 'questions', to: 'questions#create', as: :create_question
+    # /questions method post
+    # /questions/:question_id/answers method post
+    resources :answers, only: [:create, :destroy]
+    # resources :answers, except: [:show, :new, :index, :edit, :update]
+  end
   # ^^ this generates all the RESTful routes that CRUD requires for us
   # make sure to check /rails/info/routes
 

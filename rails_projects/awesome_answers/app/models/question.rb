@@ -37,6 +37,11 @@ class Question < ApplicationRecord
     #q = Question.create(title:"hello", body:"World", view_count:2)
     #before_save will turn title into "Hello" before saving into the database
 
+    has_many :answers, dependent: :destroy
+    # :destroy -> when you delete a question, the answers that belong to this question will also
+    # be deleted automatically by rails
+    # :nullify -> will set question_id to null for the records that are related to the question
+
     #--------------------VALIDATIONS-------------------->
     # Create validations by using the 'validates' method
     # The arguments are (in order):
