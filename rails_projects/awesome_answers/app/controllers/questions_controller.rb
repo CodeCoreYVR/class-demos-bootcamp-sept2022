@@ -10,6 +10,8 @@ class QuestionsController < ApplicationController
   # ===============CALLBACKS====================
   before_action :find_question, only: [:edit, :update, :show, :destroy]
 
+  before_action :authenticate_user!, except: [:index, :show]
+
   # ===============CREATE========================
   def new
     # Because Rails form helper methods need an instance of a model to work, we create a new instance
@@ -18,6 +20,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.user = current_user
     if @question.save
       flash[:success] = "Question successfully created"
       redirect_to @question

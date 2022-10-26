@@ -1,0 +1,16 @@
+<h1>Sign In</h1>
+<h3>Sessions#new</h3>
+<p>Find me in app/views/sessions/new.html.erb</p>
+
+<%= form_with url: session_path do |f|%>
+    <div>
+        <%= f.label :email %>
+        <%= f.text_field :email%>
+    </div>
+    <div>
+        <%= f.label :password %>
+        <%= f.password_field :password%>
+    </div>
+    <%= f.submit "Sign In" %>
+<% end %>
+

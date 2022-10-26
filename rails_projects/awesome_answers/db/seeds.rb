@@ -9,6 +9,29 @@
 #Destroy all records in the database before creating new data
 Question.destroy_all
 Answer.destroy_all
+User.destroy_all
+
+PASSWORD = "123"
+
+super_user = User.create(
+    first_name: "Admin",
+    last_name: "User",
+    email: "admin@user.com",
+    password: PASSWORD
+)
+
+10.times do
+    first_name = Faker::Name.first_name
+    last_name = Faker::Name.last_name
+    User.create(
+    first_name: first_name,
+    last_name: last_name,
+    email: "#{first_name}@#{last_name}.com",
+    password: PASSWORD
+    )
+end
+
+users = User.all
 
 #To access FAker we need to add the gem to Gemfile and run: bundle
 
@@ -20,11 +43,12 @@ Answer.destroy_all
         body: Faker::ChuckNorris.fact,
         view_count: rand(100_000),
         created_at: created_at,
-        updated_at: created_at
+        updated_at: created_at,
+        user: users.sample
     )
     if q.valid?
         rand(1..5).times do
-            Answer.create(body: Faker::Hacker.say_something_smart, question: q)
+            Answer.create(body: Faker::Hacker.say_something_smart, question: q, user: users.sample)
         end
     end
 
@@ -35,6 +59,7 @@ answers = Answer.all
 
 puts Cowsay.say("Generated #{questions.count} questions", :frogs)
 puts Cowsay.say("Generated #{answers.count} answers", :cow)
+puts Cowsay.say("genereated #{users.count} users", :koala)
 
 #To run this file we use command: rails db:seed
 

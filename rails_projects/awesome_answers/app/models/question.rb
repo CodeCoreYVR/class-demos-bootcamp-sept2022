@@ -41,6 +41,7 @@ class Question < ApplicationRecord
     # :destroy -> when you delete a question, the answers that belong to this question will also
     # be deleted automatically by rails
     # :nullify -> will set question_id to null for the records that are related to the question
+    belongs_to :user
 
     #--------------------VALIDATIONS-------------------->
     # Create validations by using the 'validates' method

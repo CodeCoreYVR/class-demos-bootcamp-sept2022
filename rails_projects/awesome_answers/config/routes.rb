@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  # get 'sessions/new'
+  # get 'sessions/create'
+  # get 'sessions/destroy'
+
+  # if you dont need the :id in the routes, then use "resource" not "resources"
+  resource :session, only:[:new, :create, :destroy]
+  # 'resource' is singular instead of 'resources'
+  # Unlike 'resources', 'resource' will create routes that do CRUD operations
+  # on only one thing. Also there will be no index routes, and no route
+  # will have an ':id' wildcard. But the controller name is still plural
+
+  resources :users, only: [:new, :create]
+  # get 'users/new'
+  # get 'users/create'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # ------------------------RESTful Routes----------------------------------
