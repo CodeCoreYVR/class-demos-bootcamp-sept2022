@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+After adding Bootstrap to Gemfile and uncommenting gem "sassc-rails",
+rename this file from application.css to application.scss
+Then import Bootstrap as below:
+*/
+
+@import "bootstrap";
+
+/*
+Remember, every time you make a change to this file, or any other aseets in the asset directory, you will have
+to run: rails assets:precompile
+before you will see changes in the browser
+This will allow you to load everything at once, and it won't need to reload each assets after every http request
+*/
+
+body {
+    background-color: bisque;
+}
+
+
