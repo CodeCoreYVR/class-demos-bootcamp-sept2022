@@ -11,22 +11,60 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Welcome", root_url %>
-      <%= link_to "Goodbye", what_path %>
-      <%= link_to "Form Example", form_example_path %>
-      <%= link_to 'Questions Index Page', questions_path %>
-      <%= link_to 'New Question Page', new_question_path %>
-      <% if(user_signed_in?) %>
-        Hello <%= current_user.full_name %>
-        <%= button_to "Log Out", session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In", new_session_path %>
-        <%= link_to "Sign Up", new_user_path %>
-      <% end %>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="<%= root_path %>">AwesomeAnswers</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= what_path %>">Goodbye</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= form_example_path %>">Form Example</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+            Question
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<%= questions_path %>">Questions Index Page</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<%= new_question_path %>">New Question Page</a></li>
+          </ul>
+        </li>
+        <%if(user_signed_in?) %>
+            <li class="nav-item">
+            <h5>Hello, <%= current_user.full_name %></h5>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link"><%= button_to "Log out", session_path, method: :delete, class: "btn btn-danger" %></div>
+            </li>
+        <% else %>
+          <li class="nav-item">
+            <div class="nav-link">
+            <a class="btn btn-primary btn-sm" href="<%= new_session_path%>"> Sign In Page</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link">
+              <a class="btn btn-primary btn-sm" href="<%= new_user_path%>"> Sign Up Page</a>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    
     <% flash.each do |type, message| %>
-      <%= type + "-------" + message %>
+      <div class="alert alert-info" role=alert >
+        <%= type + "-------" + message %>
+      </div>
     <% end %>
     <%= yield %>
   </body>
