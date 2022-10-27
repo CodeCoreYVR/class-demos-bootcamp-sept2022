@@ -12,6 +12,8 @@ class QuestionsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
 
+  before_action :authorize_user!, only:[:edit, :update, :destroy]
+
   # ===============CREATE========================
   def new
     # Because Rails form helper methods need an instance of a model to work, we create a new instance
@@ -86,6 +88,13 @@ class QuestionsController < ApplicationController
     # Use the 'require' on the params object to retrieve the nested hash of a key
     # usually corresponding the key-value pairs of a form
     # 'permit' to specify all input names are allowed to submit to the DB
+  end
+
+
+  private
+
+  def authorize_user!
+    redirect_to root_path, alert: "Not authorized!" unless can?(:crud, @question)
   end
   
   

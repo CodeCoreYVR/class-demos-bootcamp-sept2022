@@ -3,9 +3,10 @@
 <p><%= @question.body %></p>
 <p><small>Created at: <%= @question.created_at %>, Views: <%= @question.view_count %></small></p>
 <small>Created by: <%= @question.user.full_name %></small>
-
-<%= link_to 'Edit', edit_question_path(@question) %>
-<%= button_to 'Delete', question_path(@question), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<% if can? :crud, @question %>
+  <%= button_to 'Edit', edit_question_path(@question), method: :get %>
+  <%= button_to 'Delete', question_path(@question), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<% end %>
 
 <ul>
   <% @answers.each do |answer| %>
@@ -14,7 +15,9 @@
       <small>
         Answered <%= time_ago_in_words(answer.created_at)%> ago by <%= answer.user.full_name %>
       </small>
-      <%= link_to "Delete", question_answer_path(@question.id, answer.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% if can? :crud, answer %>
+        <%= link_to "Delete", question_answer_path(@question.id, answer.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% end %>
     </li>
     <br>
   <% end %>
