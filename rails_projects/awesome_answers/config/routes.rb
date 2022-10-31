@@ -65,6 +65,9 @@ Rails.application.routes.draw do
   # ^^ this generates all the RESTful routes that CRUD requires for us
   # make sure to check /rails/info/routes
 
+  # Testing
+  resources :job_posts, only: [:new, :create, :show, :index, :edit, :update, :destroy]
+
   # Defines the root path route ("/")
   # root "articles#index"
 
