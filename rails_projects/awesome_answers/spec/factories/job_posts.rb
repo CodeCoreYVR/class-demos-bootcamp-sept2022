@@ -7,6 +7,7 @@ FactoryBot.define do
     min_salary {rand( 80_000..200_000)}
     max_salary { rand(200_000..400_000)}
     location {Faker::Address.city}
+    association :user, factory: :user
   end
 
   #FactoryBot.create(:job_post) #will create and save the object to the db

@@ -11,6 +11,8 @@ class User < ApplicationRecord
     has_many :questions, dependent: :destroy
     has_many :answers, dependent: :destroy #you can use :nullify if you want the answer to still exist without a user
 
+    has_many :job_posts, dependent: :destroy
+
     #======Custom Method=======>
     def full_name
         self.first_name + " " + self.last_name

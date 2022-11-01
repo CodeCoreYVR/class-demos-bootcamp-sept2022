@@ -52,6 +52,10 @@ class Ability
       user == answer.user #|| answer.question.user
     end
 
+    can :crud, JobPost do |job_post|
+      user == job_post.user
+    end
+
     #IMPORTANT!!! We are defining the rules in ability.rb but we are not enforcing it yet
     #You will have to enforce the rules yourself in the views and controllers where applicable
 
