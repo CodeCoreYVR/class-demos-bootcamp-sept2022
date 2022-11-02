@@ -45,6 +45,11 @@ class QuestionsController < ApplicationController
   def show
     @answers = @question.answers.order(created_at: :desc)
     @answer = Answer.new
+    @like = @question.likes.find_by(user: current_user)
+    #@like = Like.find_by(question: @question, user: current_user)
+    #We use the likes of the @question to see if there is arecord that user_id is the current_user
+    #if there is a record, @like is that association
+    #id not, @like will be nil
   end
 
   # ===========================UPDATE=====================================
@@ -88,6 +93,10 @@ class QuestionsController < ApplicationController
     # Use the 'require' on the params object to retrieve the nested hash of a key
     # usually corresponding the key-value pairs of a form
     # 'permit' to specify all input names are allowed to submit to the DB
+  end
+
+  def liked
+    @questions = current_user.liked_questions
   end
 
 

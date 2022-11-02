@@ -46,7 +46,7 @@ class Ability
     can :crud, Question do |question|
       user == question.user
     end
-    #can :crud, Question, user_id: user.id
+    #can? :crud, Question, user_id: user.id
 
     can :crud, Answer do |answer|
       user == answer.user #|| answer.question.user
@@ -54,6 +54,18 @@ class Ability
 
     can :crud, JobPost do |job_post|
       user == job_post.user
+    end
+
+    can :like, Question do |question|
+      user.persisted? && question.user != user
+      #checks if the user is in the database
+      #does not allow the question's owner to like their own question
+    end
+    #the above method will allow us to:
+    # can? :like @question -> this will execute the above rule
+
+    can :destroy, Like do |like|
+      like.user == user
     end
 
     #IMPORTANT!!! We are defining the rules in ability.rb but we are not enforcing it yet

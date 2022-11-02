@@ -61,6 +61,13 @@ Rails.application.routes.draw do
     # /questions/:question_id/answers method post
     resources :answers, only: [:create, :destroy]
     # resources :answers, except: [:show, :new, :index, :edit, :update]
+
+    resources :likes, shallow: true,  only: [:create, :destroy]
+    #shallow: true changes the PATH of the created route
+    #original route /question/:question_id/likes/:like_id
+    #route with shallow: true -> likes/:like_id
+
+    # get :liked, on: :collection
   end
   # ^^ this generates all the RESTful routes that CRUD requires for us
   # make sure to check /rails/info/routes
@@ -94,5 +101,10 @@ Rails.application.routes.draw do
   get "form_example", to: "welcome#form_example"
 
   # get('/question/:id') #dynamic id's will replace :id with the number or params given in url
+
+  resources :likes, shallow: true, only: [:create, :destroy]
+
+  # get :liked, on: :collection
+
 
 end

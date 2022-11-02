@@ -3,10 +3,18 @@
 <p><%= @question.body %></p>
 <p><small>Created at: <%= @question.created_at %>, Views: <%= @question.view_count %></small></p>
 <small>Created by: <%= @question.user.full_name %></small>
+<small>Liked by: <%= @question.likes.count %> users</small>
 <% if can? :crud, @question %>
   <%= button_to 'Edit', edit_question_path(@question), method: :get %>
   <%= button_to 'Delete', question_path(@question), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
 <% end %>
+<small>
+  <% if @like.present? %>
+      <%= button_to "Unlike", like_path(@like), method: :delete %>
+    <% else %>
+      <%= button_to "Like", question_likes_path(@question), method: :post %>
+    <% end %>
+</small>
 
 <ul>
   <% @answers.each do |answer| %>
