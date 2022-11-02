@@ -75,6 +75,11 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+  #This controller acrtion will be used to show all the questions likied by the current user:
+  def liked
+    @questions = current_user.liked_questions
+  end
+
   private
 
   def find_question
@@ -94,14 +99,6 @@ class QuestionsController < ApplicationController
     # usually corresponding the key-value pairs of a form
     # 'permit' to specify all input names are allowed to submit to the DB
   end
-
-  #This controller acrtion will be used to show all the questions likied by the current user:
-  def liked
-    @questions = current_user.liked_questions
-  end
-
-
-  private
 
   def authorize_user!
     redirect_to root_path, alert: "Not authorized!" unless can?(:crud, @question)
