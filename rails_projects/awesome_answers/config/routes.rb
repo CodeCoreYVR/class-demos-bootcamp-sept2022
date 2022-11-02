@@ -67,7 +67,9 @@ Rails.application.routes.draw do
     #original route /question/:question_id/likes/:like_id
     #route with shallow: true -> likes/:like_id
 
-    # get :liked, on: :collection
+    get :liked, on: :collection
+    #the above route creates a path like: GET "/questions/liked"
+    #similar to the questions index, but it will only show the questions liked by the current user
   end
   # ^^ this generates all the RESTful routes that CRUD requires for us
   # make sure to check /rails/info/routes

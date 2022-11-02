@@ -95,6 +95,7 @@ class QuestionsController < ApplicationController
     # 'permit' to specify all input names are allowed to submit to the DB
   end
 
+  #This controller acrtion will be used to show all the questions likied by the current user:
   def liked
     @questions = current_user.liked_questions
   end

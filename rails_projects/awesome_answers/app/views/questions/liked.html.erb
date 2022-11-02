@@ -1,0 +1,8 @@
+<h1>Liked Questions Page</h1>
+<% @questions.each do |question| %>
+    <div>
+        <h3><%= link_to question.title, question %></h3>
+    </div>
+<% end %>
+
+
