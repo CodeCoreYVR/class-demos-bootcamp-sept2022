@@ -13,6 +13,17 @@ class User < ApplicationRecord
 
     has_many :job_posts, dependent: :destroy
 
+    has_and_belongs_to_many(
+        :liked_questions, #this is the name/alias we want to give it
+        
+            class_name: 'Question', #this is the name of the model we are associating with
+            join_table: 'likes', #this is the name of the join table
+            association_foreign_key: 'question_id', #this is the name of the key that will act as the foreign key
+            foreign_key: 'user_id' #this is the name of the key that will be used as the foreign key in the join
+            #table of this table
+        
+    )
+
     #======Custom Method=======>
     def full_name
         self.first_name + " " + self.last_name

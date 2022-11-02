@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_162127) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_162521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_162127) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_job_posts_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_likes_on_question_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -63,5 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_162127) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "job_posts", "users"
+  add_foreign_key "likes", "questions"
+  add_foreign_key "likes", "users"
   add_foreign_key "questions", "users"
 end

@@ -43,6 +43,15 @@ class Question < ApplicationRecord
     # :nullify -> will set question_id to null for the records that are related to the question
     belongs_to :user
 
+    has_and_belongs_to_many(
+        :likes, #this is the name/alias we want to give it
+        class_name: 'User', #this is the name of the model we are associating with
+        join_table: 'likes', #this is the name of the join table
+        association_foreign_key: 'user_id', #this is the name of the key that will act as the foreign key
+        foreign_key: 'question_id' #this is the name of the key that will be used as the foreign key in the join
+            #table of this table
+    )
+
     #--------------------VALIDATIONS-------------------->
     # Create validations by using the 'validates' method
     # The arguments are (in order):
