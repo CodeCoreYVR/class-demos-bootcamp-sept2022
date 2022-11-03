@@ -1,4 +1,8 @@
-
+<% if @tag.present? %>
+    <h2>Showing Questions tagged by:
+        <span class="badge rounded-pill bg-primary"><%= @tag.name %></span> 
+    </h2>
+<% end %>
 <div class="row">
     <div class="col-2">
     </div>

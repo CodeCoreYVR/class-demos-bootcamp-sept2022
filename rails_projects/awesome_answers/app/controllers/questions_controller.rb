@@ -36,10 +36,17 @@ class QuestionsController < ApplicationController
 
   # ============================READ=======================================
   def index
-    @questions = Question.order(created_at: :desc)
+    # @questions = Question.order(created_at: :desc)
     # Model.all is a method built into active record used to return all records of that model
     # the @ sign is necessary to make a variable an instance variable
     # You need instance variables to make it available in the view pages!!!
+
+    if params[:tag]
+      @tag = Tag.find_or_initialize_by(name: params[:tag])
+      @questions = @tag.questions.order(updated_at: :desc)
+    else
+      @questions = Question.order(created_at: :desc)
+    end
   end
 
   def show
