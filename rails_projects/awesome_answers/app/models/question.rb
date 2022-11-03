@@ -106,6 +106,31 @@ class Question < ApplicationRecord
 
     # select * from questions where title ilike %??% and body ilike %???%;
 
+    #--------ADD CUSTOM TAG METHODS TO GET OR SET TAGS WITH SELECTIZE-------------->
+
+    #Getter method
+    def tag_names
+        self.tags.map(&:name).join(", ")
+        #The & symbol is used to tell Ruby that the following argument
+        #should be given as a code block to the method, so
+        #self.tags.map(&:name).join(", ") is the same as:
+        #self.tags.map { |t| t.name.join(", ")}
+        #The above will iterate over the collection of self.tags
+        #and build an array of results of the name methoid
+        #called on every item
+    end
+
+    #Setter method
+    #This is similar to implementing an attribute writer like attr_writer
+    #Appending = at the end of the method name allows us to implement a setter
+    #A setter is a method that is assignable, for example
+    #q.tag_names = 'another new tag name'
+    def tag_names=(rhs)
+        self.tags = rhs.strip.split(/\s*, \s*/).map do |tag_name|
+            Tag.find_or_initialize_by(name: tag_name)
+        end
+    end
+
     private
 
     def no_monkey

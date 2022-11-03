@@ -10,15 +10,37 @@
     <%= form.label :body %>
     <br>
     <%= form.text_area :body, cols:50, rows: 5 %>
-  </div class="tag-container">
-    <%= form.collection_check_boxes :tag_ids, Tag.order(name: :ASC), :id, :name do |t| %>
-      <div class="tag-wrapper">
-        <%= t.check_box %>
-        <%= t.text %>
-      </div>
-    <% end %>
-  <div>
+  </div>
+  <div class="tag-wrapper">
+    <%= form.label :tag_names %>
+    <%= form.text_field :tag_names %>
   </div>
   <%= form.submit %>
 
 <% end %>
+
+<%# selectize docs: https://github.com/selectize/selectize.js/blob/master/docs/usage.md %>
+
+<script>
+  $(function(){
+    $('#question_tag_names').selectize({
+      delimeter: ',',
+      persist: false,
+      labelField: 'name', //The name of the property to render as an option / item label.
+      valueField: 'name', //The name of the property to use as the value when an item is selected.
+      searchField: 'name', //An array of property names to analyze when filtering options.
+      options: <% Tag.select(:name).to_json(except: [:id]).html_safe %>,
+      //The above line selects only names from the tags table and converts them
+      //into a json array that can be displayed in the browser. This will be an array of objects
+      //without including the tag id's and it makes sure it's in a safe html string
+      // options: [{"name": "first tag name"}, {"name": "second tag name"}, etc]
+      create: function(input){
+        return {
+          name: input
+        }
+      }
+    });
+  });
+</script>
+
+
