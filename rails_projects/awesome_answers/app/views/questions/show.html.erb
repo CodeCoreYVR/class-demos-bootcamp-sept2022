@@ -4,6 +4,14 @@
 <p><small>Created at: <%= @question.created_at %>, Views: <%= @question.view_count %></small></p>
 <small>Created by: <%= @question.user.full_name %></small>
 <small>Liked by: <%= @question.likes.count %> users</small>
+<% unless @question.tags.empty? %>
+  <p>
+    Tags:
+    <% @question.tags.each do |tag| %>
+      <%= link_to( tag.name, '/' )%>
+    <% end %>
+  </p>
+<% end %>
 <% if can? :crud, @question %>
   <%= button_to 'Edit', edit_question_path(@question), method: :get %>
   <%= button_to 'Delete', question_path(@question), method: :delete, data: {turbo_confirm: "Are you sure?"} %>

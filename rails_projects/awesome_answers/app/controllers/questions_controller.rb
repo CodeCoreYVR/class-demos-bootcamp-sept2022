@@ -93,7 +93,7 @@ class QuestionsController < ApplicationController
   # to inject data for the required params in the form,
   # related to the given model:
   def question_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, tag_ids: [])
     # get the data from the form and add it into the DB
     # Use the 'require' on the params object to retrieve the nested hash of a key
     # usually corresponding the key-value pairs of a form

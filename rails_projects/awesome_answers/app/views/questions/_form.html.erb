@@ -10,6 +10,14 @@
     <%= form.label :body %>
     <br>
     <%= form.text_area :body, cols:50, rows: 5 %>
+  </div class="tag-container">
+    <%= form.collection_check_boxes :tag_ids, Tag.order(name: :ASC), :id, :name do |t| %>
+      <div class="tag-wrapper">
+        <%= t.check_box %>
+        <%= t.text %>
+      </div>
+    <% end %>
+  <div>
   </div>
   <%= form.submit %>
 
