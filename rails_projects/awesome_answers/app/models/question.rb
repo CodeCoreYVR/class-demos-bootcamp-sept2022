@@ -58,6 +58,9 @@ class Question < ApplicationRecord
     #The users liking the question:
     has_many :likers, through: :likes, source: :user
 
+    has_many :taggings, dependent: :destroy
+    has_many :tags, through: :taggings #we don't need to add source: :tag because it is the singular of the tags association
+
     #--------------------VALIDATIONS-------------------->
     # Create validations by using the 'validates' method
     # The arguments are (in order):

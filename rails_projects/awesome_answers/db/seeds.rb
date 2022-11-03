@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 #Destroy all records in the database before creating new data
+Like.destroy_all
+Tagging.destroy_all
+Tag.destroy_all
 Question.destroy_all
 Answer.destroy_all
 User.destroy_all
@@ -35,6 +38,15 @@ end
 
 users = User.all
 
+NUM_TAGS = 20
+NUM_TAGS.times do  
+    Tag.create(
+        name:  Faker::ProgrammingLanguage.name
+    )
+end
+
+tags = Tag.all
+
 #To access FAker we need to add the gem to Gemfile and run: bundle
 
 200.times do
@@ -52,6 +64,8 @@ users = User.all
         rand(1..5).times do
             Answer.create(body: Faker::Hacker.say_something_smart, question: q, user: users.sample)
         end
+        q.likers = users.shuffle.slice(0, rand(users.count))
+        q.tags = tags.shuffle.slice(0, rand(tags.count))
     end
 
 end
@@ -61,7 +75,9 @@ answers = Answer.all
 
 puts Cowsay.say("Generated #{questions.count} questions", :frogs)
 puts Cowsay.say("Generated #{answers.count} answers", :cow)
-puts Cowsay.say("genereated #{users.count} users", :koala)
+puts Cowsay.say("Genereated #{users.count} users", :koala)
+puts Cowsay.say("Genereated #{Like.count} likes", :dragon)
+puts Cowsay.say("Genereated #{Tag.count} tags", :bunny)
 
 #To run this file we use command: rails db:seed
 
