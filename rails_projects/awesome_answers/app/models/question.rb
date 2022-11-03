@@ -125,9 +125,18 @@ class Question < ApplicationRecord
     #Appending = at the end of the method name allows us to implement a setter
     #A setter is a method that is assignable, for example
     #q.tag_names = 'another new tag name'
+
+    #The code in the example above from the getter method would call the method we have below
+    #where the value on the right-hand side of the "=" would
+    #become the argument to the method
     def tag_names=(rhs)
-        self.tags = rhs.strip.split(/\s*, \s*/).map do |tag_name|
-            Tag.find_or_initialize_by(name: tag_name)
+        self.tags = rhs.strip.split(/\s*,\s*/).map do |tag_name|
+            # Finds the first record with the given attributes, or
+	        # initializes a record (Tag.new) with the attributes
+	        # if one is not found
+            Tag.find_or_initialize_by(name: tag_name.downcase)
+            # if a tag with name tag_name is not found,
+	        # it will call Tag.new(name: tag_name)
         end
     end
 
