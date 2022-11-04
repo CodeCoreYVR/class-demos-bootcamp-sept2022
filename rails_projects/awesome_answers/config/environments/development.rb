@@ -37,7 +37,16 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true 
+  #convert the above to true so that the mailer does not fail silently
+
+  #Add letter opener configurations for mailers:
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+  #These configurations can be seen in the docs: https://github.com/ryanb/letter_opener
+  config.action_mailer.default_url_options={
+    host: 'localhost:3000'
+  }
 
   config.action_mailer.perform_caching = false
 
