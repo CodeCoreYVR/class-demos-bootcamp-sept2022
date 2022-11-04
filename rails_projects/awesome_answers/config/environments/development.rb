@@ -42,6 +42,7 @@ Rails.application.configure do
 
   #Add letter opener configurations for mailers:
   config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   #These configurations can be seen in the docs: https://github.com/ryanb/letter_opener
   config.action_mailer.default_url_options={
