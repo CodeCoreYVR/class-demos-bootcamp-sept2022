@@ -10,7 +10,9 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     if @answer.save
       # AnswerMailer.hello_world.deliver_now
-      AnswerMailer.new_answer(@answer).deliver_now
+      # AnswerMailer.new_answer(@answer).deliver_now
+      # AnswerMailer.delay(run_at: 30.seconds.from_now).new_answer(@answer)
+      AnswerMailer.new_answer(@answer).deliver_later
       # if saved successfully then redirect to the show page of the question
       # otherwise still go to this show page but using render
       # the difference between redirect and render

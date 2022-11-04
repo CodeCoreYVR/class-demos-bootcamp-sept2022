@@ -108,5 +108,14 @@ Rails.application.routes.draw do
 
   # get :liked, on: :collection
 
+  #Delayed_job routes:
+  #We will see this route at this url: 'localhost:3000/delayed_job/overview'
+  match(
+    "delayed_job",
+    to: DelayedJobWeb,
+    anchor: false,
+    via: [:get, :post]
+  )
+
 
 end

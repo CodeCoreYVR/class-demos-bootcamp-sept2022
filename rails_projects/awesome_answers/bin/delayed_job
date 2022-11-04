@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'environment'))
+require 'delayed/command'
+Delayed::Command.new(ARGV).daemonize
+
+=begin
+Introduced in Rails 4, the  `./bin`  directory contains your app's "binstubs." Binstubs are wrappers around gem executables, like  `rails`  or  `bundle`, which ensures a gem executable is run inside the correct environment for your Rails app.
+Binstubs can be used in lieu of  `bundle exec`  to run a gem's executable inside your app's environment. For example, instead of typing  `bundle exec rails scaffold products`  you can type  `bin/rails scaffold products`. Using binstubs is more flexible than  `bundle exec`, because you don't have to  `cd`  to the app's root directory and type  `bundle exec`  before everything.
+By default,  `bundle`,  `rails`,  `rake`,  `setup`,  `spring`  binstubs are created automatically for new rails projects. To make a binstub for a gem executable, just type  `bundle binstubs name_of_gem_executable`. You'll find the new binstub in your  `./bin`  directory.
+Some suggest putting  `./bin`  in your shell's search  `$PATH`, so that you don't have to type  `bin/rails`  and you can just type  `rails`. This is risky because it depends on  `./bin`  coming before the gem executable's path in  `$PATH`; if you happen to forget this ordering and adjust  `$PATH`  such that the gem's executable is found before the binstub wrapper, you could easily invoke the gem's executable -- sans the environmental pretext -- without realizing it.
+=end
+
