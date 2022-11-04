@@ -5,6 +5,6 @@ ActionMailer::Base.smtp_settings = {
     port: "587",
     enable_starttls_auto: true,
     authentication: :plain,
-    username: ENV["EMAIL_USERNAME"],
+    user_name: ENV["EMAIL_USERNAME"],
     password: ENV["EMAIL_PASSWORD"]
 }
