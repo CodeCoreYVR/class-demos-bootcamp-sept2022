@@ -1,0 +1,147 @@
+html {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", cursive;
+  font-weight: 200;
+}
+
+html * {
+  box-sizing: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.teams {
+  display: flex;
+  flex-flow: column;
+}
+
+.teams .team {
+  margin: 3px;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: black;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.teams .team > *:last-child {
+  flex-grow: 1;
+}
+
+.teams .team.salmon {
+  background-color: salmon;
+}
+
+.teams .team.teal {
+  background-color: teal;
+}
+
+.teams .team.khaki {
+  background-color: khaki;
+}
+
+.teams .team > .title {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 2em;
+}
+
+.teams .team > .roster {
+  padding: 3px;
+  border-radius: 3px;
+  background-color: white;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.teams .team > .roster > * {
+  width: 200px;
+  margin: 3px;
+}
+
+@media (min-width: 825px) {
+  .team > .roster > * {
+    width: calc(50% - 6px);
+    margin: 3px;
+  }
+}
+
+.doggo {
+  width: 200px;
+  height: 200px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.doggo > h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4em;
+}
+
+.doggo.fighter.selected {
+  border: solid 5px deepskyblue;
+}
+
+.doggo.fighter.hovered {
+  filter: grayscale(1);
+}
+
+#applicant-preview {
+  border: solid 5px gainsboro;
+  background-color: grey;
+}
+
+#toxic-tim { background-image: url(./images/toxic_tim.jpg); }
+#bumble-bertha { background-image: url(./images/bumble_bertha.jpg); }
+#nina-the-ninja { background-image: url(./images/nina_the_ninja.jpg); }
+#larry-the-lion { background-image: url(./images/larry_the_lion.jpg); }
+#inbread-dog { background-image: url(./images/inbread_dog.jpg); }
+#four-fists-larry { background-image: url(./images/four_fists_phil.jpg); }
+#knight-nicholas { background-image: url(./images/knight_nicholas.jpg); }
+#archmage-alfie { background-image: url(./images/archmage_alfie.jpg); }
+#moneybags-michael { background-image: url(./images/moneybags_michael.jpg); }
+
+.application {
+  margin-bottom: 9px;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.application > *:not(:last-child) {
+  margin-right: 3px;
+}
+
+.application > form {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+}
+
+.application > form > div {
+  display: flex;
+}
+
+.application > form > div > label {
+  width: 5rem;
+  flex-shrink: 0;
+}
+
+.selected {
+  border: 5px solid skyblue;
+}
+
+
