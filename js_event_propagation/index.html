@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Doggo Arena</title>
+  <link rel="stylesheet" href="index.css" type="text/css" media="screen" charset="utf-8">
+</head>
+
+<body>
+  <h1 class="title">Become a fighter!</h1>
+  <div class="application">
+
+    <div id="applicant-preview">
+      <div class="doggo blank">
+        <h1>Applicant Preview</h1>
+      </div>
+    </div>
+
+    <form id="application-form" action="/" method="post">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"></input>
+      </div>
+
+      <div>
+        <label for="picture-url">Picture Url</label>
+        <input type="text" name="picture-url" id="picture-url"></input>
+      </div>
+
+      <div>
+        <label for="team-name">Team Name</label>
+        <input type="text" name="team-name" id="team-name"></input>
+      </div>
+
+      <div>
+        <input type="submit" value="Submit"></input>
+      </div>
+    </form>
+
+  </div>
+  <div class="teams">
+
+    <div class="team salmon">
+      <h1 class="title">Team Salmon</h1>
+      <div class="roster">
+        <div id="toxic-tim" class="doggo fighter">
+          <h1>Toxic Tim</h1>
+        </div>
+        <div id="bumble-bertha" class="doggo fighter">
+          <h1>Bumble Bertha</h1>
+        </div>
+        <div id="nina-the-ninja" class="doggo fighter">
+          <h1>Nina The Ninja</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="team teal">
+      <h1 class="title">Team Teal</h1>
+      <div class="roster">
+        <div id="inbread-dog" class="doggo fighter">
+          <h1>In-Bread Dog</h1>
+        </div>
+        <div id="larry-the-lion" class="doggo fighter">
+          <h1>Larry The Lion</h1>
+        </div>
+        <div id="moneybags-michael" class="doggo fighter">
+          <h1>Moneybags Michael</h1>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <script type="text/javascript" src="propagation.js"></script>
+
+</body>
+
+</html>
+
