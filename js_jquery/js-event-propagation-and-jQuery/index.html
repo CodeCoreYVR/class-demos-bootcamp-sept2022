@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/master.css" />
+    <!-- You MUST include the jquery script before you include your own custom scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- If you do not do this correctly, your code will NOT work and will ERROR -->
+    <script src="js/setup.js"></script>
+    <script src="js/main.js"></script>
+    <title>Event Propagation</title>
+  </head>
+
+  <body>
+    <!-- Shapes Section -->
+    <section>
+      <h1>Shapes</h1>
+
+      <div class="small black square shape"></div>
+      <div class="small grey circle shape"></div>
+      <div class="large blue square shape"></div>
+
+      <div id="purple-container" class="container">
+        <div class="medium black square shape"></div>
+        <div class="large blue square shape"></div>
+        <div class="medium red circle shape"></div>
+      </div>
+
+      <div id="orange-container" class="container">
+        <div class="medium black square shape"></div>
+        <div class="small red circle shape"></div>
+        <div class="large grey diamond shape"></div>
+        <div class="small red circle shape"></div>
+        <div class="medium blue circle shape"></div>
+      </div>
+
+      <div id="green-container" class="container">
+        <div class="medium black square shape"></div>
+        <div class="small red circle shape"></div>
+        <div class="large grey diamond shape"></div>
+        <div class="medium blue circle shape"></div>
+        <div class="medium red diamond shape"></div>
+      </div>
+    </section>
+
+    <!-- List Section -->
+    <section>
+      <h1>List</h1>
+
+      <ul>
+        <li><a href="http://www.google.com">Google</a></li>
+        <li><a href="http://www.wikipedia.org">Wikipedia</a></li>
+        <li><a href="http://www.facebook.com">Facebook</a></li>
+        <li><a href="http://vancouver.craigslist.ca">Craigslist</a></li>
+        <li><a href="http://www.facebook.com">Another Facebook</a></li>
+        <li><a>Link to Nowhere</a></li>
+        <li><span>Not a Link</span></li>
+      </ul>
+    </section>
+
+    <!-- Table Section -->
+    <section>
+      <h1>Table</h1>
+
+      <table>
+        <tr>
+          <td>1</td>
+          <td>a</td>
+        </tr>
+        <tr class="highlight">
+          <td>2</td>
+          <td>b</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>e</td>
+        </tr>
+        <tr class="highlight">
+          <td>6</td>
+          <td>f</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h1>Buttons</h1>
+
+      <button id="button-1" class="button">Button 1</button>
+      <button id="button-2" class="button">Button 2</button>
+      <button id="button-3" class="button">Button 3</button>
+      <button id="button-4" class="button">Button 4</button>
+
+      <p id="button-message">Button Message</p>
+    </section>
+
+    <section>
+      <h1>Form</h1>
+
+      <form id="form-1">
+        <input type="text" />
+        <input type="submit" />
+        <p id="form-message">Form Message</p>
+      </form>
+    </section>
+
+    <button id="reset">Reset</button>
+    <section class="events">
+      <div class="event-bubbling-container">
+        <button id="event-bubbling-button">Bubble the Event</button>
+      </div>
+      <div class="event-capturing-container">
+        <button id="event-capturing-button">Capture the Event</button>
+      </div>
+    </section>
+  </body>
+</html>

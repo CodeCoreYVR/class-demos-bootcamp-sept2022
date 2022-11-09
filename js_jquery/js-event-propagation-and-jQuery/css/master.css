@@ -1,0 +1,127 @@
+.container {
+  margin: 20px;
+  padding: 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.shape {
+  border: 2px solid black;
+  display: inline-block;
+  margin: 10px;
+}
+
+section {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  float: left;
+}
+
+.highlight {
+  background-color: yellow !important;
+}
+
+.button {
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#purple-container {
+  background-color: purple;
+}
+
+#orange-container {
+  background-color: orange;
+}
+
+#green-container {
+  background-color: green;
+}
+
+#reset {
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+  float: right;
+  margin-right: 20px;
+}
+
+/* Sizes */
+
+.small {
+  width: 35px;
+  height: 35px;
+}
+
+.medium {
+  width: 70px;
+  height: 70px;
+}
+
+.large {
+  width: 140px;
+  height: 140px;
+}
+
+/* Colours */
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.black {
+  background-color: black;
+}
+
+.grey {
+  background-color: gray;
+}
+
+/* Shapes */
+
+.square {
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+.diamond {
+  transform: rotate(45deg);
+  margin: 20px;
+}
+
+/* Events */
+.events {
+  width: 80%;
+  background-color: gray;
+}
+.events .event-bubbling-container {
+  float: left;
+}
+.events .event-capturing-container {
+  float: right;
+}
+
+.events button {
+  width: 10em;
+  height: 5em;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.events div:first-child button {
+  background-color: deepskyblue;
+}
+
+.events div:last-child button {
+  background-color: orange;
+}
