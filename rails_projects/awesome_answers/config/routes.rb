@@ -117,5 +117,18 @@ Rails.application.routes.draw do
     via: [:get, :post]
   )
 
+  #=======================API ROUTES===============>
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :questions, only: [:index, :show]
+    end
+    # localhost:3000/api/v1/questions
+
+    # namespace :v2 do
+    #   resources :questions
+    # end
+  end
+
+
 
 end
