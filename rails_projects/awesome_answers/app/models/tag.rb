@@ -9,7 +9,7 @@ class Tag < ApplicationRecord
     #vakidation ignore the case, so two records of the same name will not co-exist
 
     def downcase_name
-        puts self.name
+        # puts self.name
         self.name&.downcase!
     end
 end
