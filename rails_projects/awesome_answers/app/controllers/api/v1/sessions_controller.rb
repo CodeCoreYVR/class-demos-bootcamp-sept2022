@@ -12,9 +12,21 @@ class Api::V1::SessionsController < Api::ApplicationController
             )
         end
     end
+    #=====POSTMAN create====>
+    #name: sessions#create
+    #request: POST -> http://localhost:3000/api/v1/session
+    #Headers: key: Content-Type, value: application/json
+    #Body: raw, JSON
+    #Example session user: {"email": "admin@user.com", "password": "123"}
+    #**Remember, this will only work if a user credentials exist in database
+    #================>
 
     def destroy
         session[:user_id] = nil
         render json: "session destroyed"
     end
+    #=====POSTMAN destroy====>
+    #name: sessions#destroy
+    #request: DELETE -> http://localhost:3000/api/v1/session
+    #================>
 end

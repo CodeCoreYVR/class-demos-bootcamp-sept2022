@@ -14,6 +14,11 @@ class Api::V1::QuestionsController < Api::ApplicationController
         # we will provide 'each_serializer' named argument to the option hash of the render method that tells which serializer to use with each instance
     end
 
+    #=====POSTMAN index====>
+    #name: questions#index
+    #request: GET -> http://localhost:3000/api/v1/questions
+    #================>
+
     def show
         question = Question.find(params[:id])
         render(json: question)
@@ -21,6 +26,12 @@ class Api::V1::QuestionsController < Api::ApplicationController
         #specify which serializer to use like we do above with index and QuestionCollectionSerializer
         # render(json: question, each_serializer: QuestionSerializer)
     end
+
+    #=====POSTMAN show====>
+    #name: questions#show
+    #request: GET -> http://localhost:3000/api/v1/questions/:id
+    #Params: key: id, value: 326 (or any value that exists in your database)
+    #================>
 
     def create
         question = Question.new(question_params)
@@ -36,6 +47,15 @@ class Api::V1::QuestionsController < Api::ApplicationController
         end
     end
 
+    #=====POSTMAN create====>
+    #name: questions#create
+    #request: POST -> http://localhost:3000/api/v1/questions
+    #Headers: key: Content-Type, value: application/json
+    #Body: raw, JSON
+    #Example question: {"question": {"title":"New unique question!", "body":"This is a newly created question" }}
+    #**Remember, this will only work if a user is hard coded, or if session has been created
+    #================>
+
     def update
         question = Question.find(params[:id])
         if question.update(question_params)
@@ -47,6 +67,15 @@ class Api::V1::QuestionsController < Api::ApplicationController
             )
         end
     end
+    #=====POSTMAN update====>
+    #name: questions#update
+    #request: PATCH -> http://localhost:3000/api/v1/questions/:id
+    #Params: key: id, value: 326 (or any value that exists in your database)
+    #Headers: key: Content-Type, value: application/json
+    #Body: raw, JSON
+    #Example question update: {"title": "Title is now updated", "body": "Body is also updated"}
+    #**Remember, this will only work if a user is hard coded, or if session has been created
+    #================>
 
     def destroy
         question = Question.find(params[:id])
@@ -60,6 +89,12 @@ class Api::V1::QuestionsController < Api::ApplicationController
             render( json: {status: 500})
         end
     end
+    #=====POSTMAN destroy====>
+    #name: questions#destroy
+    #request: DELETE -> http://localhost:3000/api/v1/questions/:id
+    #Params: key: id, value: 326 (or any value that exists in your database)
+    #**Remember, this will only work if a user is hard coded, or if session has been created
+    #================>
 
     private
 
