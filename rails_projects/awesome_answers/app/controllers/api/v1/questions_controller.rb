@@ -1,4 +1,6 @@
 class Api::V1::QuestionsController < Api::ApplicationController
+    before_action authenticate_user!, except: [:index, :show]
+    
     def index
         questions = Question.order(created_at: :desc)
         # render(json: questions)
@@ -43,6 +45,16 @@ class Api::V1::QuestionsController < Api::ApplicationController
     end
 
     def destroy
+        question = Question.find(params[:id])
+        if question.destroy
+            # head :ok
+            render(
+                json: { status: 200 }
+            )
+        else
+            # head :bad_request
+            render( json: {status: 500})
+        end
     end
 
     private
