@@ -12,4 +12,9 @@ class Api::V1::SessionsController < Api::ApplicationController
             )
         end
     end
+
+    def destroy
+        session[:user_id] = nil
+        render json: "session destroyed"
+    end
 end

@@ -1,6 +1,6 @@
 class Api::V1::QuestionsController < Api::ApplicationController
-    before_action authenticate_user!, except: [:index, :show]
-    
+    before_action :authenticate_user!, except: [:index, :show]
+
     def index
         questions = Question.order(created_at: :desc)
         # render(json: questions)

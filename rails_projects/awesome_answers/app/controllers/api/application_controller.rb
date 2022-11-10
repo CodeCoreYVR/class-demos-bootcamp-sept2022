@@ -4,6 +4,8 @@ class Api::ApplicationController < ApplicationController
     private
 
     def authenticate_user!
-        redirect_to new_session_path, notice: "Please sign in" unless user_signed_in?
+        unless current_user.present?
+            render(json:{status:401})
+        end
     end
 end
