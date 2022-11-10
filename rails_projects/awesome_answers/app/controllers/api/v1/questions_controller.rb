@@ -17,8 +17,24 @@ class Api::V1::QuestionsController < Api::ApplicationController
     end
 
     def create
+        question = Question.new(question_params)
+        question.user = User.first #hard code user for now
+        if question.save
+            render json: { id: question.id }
+        else
+            render(
+                json: {errors: question.errors.messages },
+                status: 422 #unprocessable entity HTTP status code
+            )
+        end
     end
 
     def destroy
+    end
+
+    private
+
+    def question_params
+        params.require(:question).permit(:title, :body, :tag_names)
     end
 end
