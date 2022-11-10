@@ -120,7 +120,7 @@ Rails.application.routes.draw do
   #=======================API ROUTES===============>
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :questions, only: [:index, :show, :create]
+      resources :questions, only: [:index, :show, :create, :update]
       resource :session, only: [:create, :destroy]
     end
     # localhost:3000/api/v1/questions

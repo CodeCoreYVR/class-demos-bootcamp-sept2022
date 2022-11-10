@@ -30,6 +30,18 @@ class Api::V1::QuestionsController < Api::ApplicationController
         end
     end
 
+    def update
+        question = Question.find(params[:id])
+        if question.update(question_params)
+            render json: {id: question.id }
+        else
+            render(
+                json: { errors: question.errors.messages },
+                status: 422
+            )
+        end
+    end
+
     def destroy
     end
 
@@ -39,3 +51,4 @@ class Api::V1::QuestionsController < Api::ApplicationController
         params.require(:question).permit(:title, :body, :tag_names)
     end
 end
+
