@@ -18,7 +18,8 @@ class Api::V1::QuestionsController < Api::ApplicationController
 
     def create
         question = Question.new(question_params)
-        question.user = User.first #hard code user for now
+        # question.user = User.first #hard code user for now
+        question.user = current_user
         if question.save
             render json: { id: question.id }
         else
