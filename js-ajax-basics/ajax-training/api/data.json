@@ -1,0 +1,56 @@
+{
+  "students": [
+      {
+          "id": 1,
+          "name": "Steven",
+          "grade": 5,
+          "major": "Business" 
+      },
+      {
+          "id": 2,
+          "name": "John",
+          "grade": 12,
+          "major": "Science" 
+      },
+      {
+          "id": 3,
+          "name": "Francis",
+          "grade": 7,
+          "major": "Art" 
+      },
+      {
+          "id": 4,
+          "name": "Joseph",
+          "grade": 2,
+          "major": "Science" 
+      },
+      {
+          "id": 5,
+          "name": "Chinmaya",
+          "grade": 8,
+          "major": "Business" 
+      }
+  ],
+  "departments": [
+      {
+          "id": 1,
+          "name": "Computer Science"
+      },
+      {
+          "id": 2,
+          "name": "Mathematics"
+      },
+      {
+          "id": 3,
+          "name": "Biology"
+      },
+      {
+          "id": 4,
+          "name": "Accounting"
+      },
+      {
+          "id": 5,
+          "name": "Geology"
+      }
+  ]
+}
