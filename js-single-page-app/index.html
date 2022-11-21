@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Page App</title>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="/js/main.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="ui container">
+      <header>
+        <div class="ui secondary pointing menu navbar">
+          <a class="active item" href="#" data-target="welcome">Welcome</a>
+          <a class="item" href="#" data-target="question-index">Questions</a>
+          <a class="item" href="#" data-target="question-new">New Question</a>
+        </div>
+      </header>
+    </div>
+
+    <!-- Welcome section -->
+    <div class="ui segment">
+      <section class="page active">
+        <div class="ui header">Welcome to Awesome Answers</div>
+      </section>
+    </div>
+
+    <!-- question show -->
+    <section class="page" id="question-show"></section>
+
+    <!-- questions index -->
+    <section class="page" id="question-index">
+      <div class="ui header">Questions</div>
+      <ul class="ui list question-list"></ul>
+    </section>
+
+    <!-- Create a new Question Section -->
+    <section class="page" id="question-new">
+      <div class="ui header">New Question</div>
+      <form class="ui form" id="new-question-form">
+        <div class="field">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Question title"
+          />
+        </div>
+
+        <div class="field">
+          <label for="body">Body</label>
+          <textarea name="body" id="body" rows="3" placeholder="Question body"></textarea>
+        </div>
+
+        <button class="ui button" type="submit">Create Question</button>
+      </form>
+    </section>
+
+    <!-- Edit Question section -->
+    <section class="page" id="question-edit">
+      <div class="ui header">Edit Question</div>
+      <form class="ui form" id="edit-question-form">
+        <div class="field">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+
+        <div class="field">
+          <label for="body">Body</label>
+          <textarea name="body" id="body" rows="3"></textarea>
+        </div>
+
+        <input type="hidden" value="" name="id" />
+        <button class="ui button" type="submit">Update Question</button>
+      </form>
+    </section>
+  </body>
+</html>

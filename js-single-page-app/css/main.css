@@ -1,0 +1,13 @@
+.ui.segment.question-show-container {
+  padding-right: 0;
+}
+
+/* Default behavior of the node with the page class will be hidden unless it has the active class */
+.page {
+  display: none;
+}
+
+/* If a node has an active class it will not be hidden and will have a display of block */
+.page.active {
+  display: block;
+}

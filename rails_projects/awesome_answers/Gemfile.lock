@@ -168,6 +168,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-protection (3.0.2)
       rack
     rack-test (2.0.2)
@@ -287,6 +289,7 @@ DEPENDENCIES
   pg (~> 1.1)
   pry (~> 0.14.1)
   puma (~> 5.0)
+  rack-cors
   rails (~> 7.0.4)
   rails-controller-testing
   rspec-rails
@@ -302,4 +305,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.3.8
+   2.3.12
