@@ -22,7 +22,7 @@ const Name = (props) => {
     // const name = props.name
     // const bgColor = props.bgColor
     return React.createElement(
-        'div',
+        'li',
         {
             style: {
                 //we are still writing JS  here, but React can interpret it as CSS properties
@@ -32,6 +32,20 @@ const Name = (props) => {
             }
         },
         `${name}`
+    )
+}
+
+//NameList Component
+//This will accept an array of names, and will render out a list of Name elements
+const NameList = (props) => {
+    const names = props.names;
+    const items = names.map((n, i) => {
+        return Name({name: n, bgColor: i % 2 === 0 ? 'aqua' : 'pink'})
+    })
+    return React.createElement(
+        'ul',
+        null,
+        items
     )
 }
 
@@ -56,8 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = ReactDOM.createRoot(container);
     root.render(
         // ourFirstElement
-        Name({name: 'Matt', bgColor: 'pink'}) //now we can add an object to the function args as props
+        // Name({name: 'Matt', bgColor: 'pink'}) //now we can add an object to the function args as props
         //instead of rendering out the React element, we now render out a React component
+        NameList({names: ['Sam', 'Billy', 'AJ', 'Joey', 'Lee', 'Andy']})
+        // We will render out a nameList component, that in turn renders out the Name components
     )
 })
 
