@@ -14,6 +14,27 @@ const ourFirstElement = React.createElement(
 //     'Google'
 // )
 
+//By creating a function that creates and returns a React element
+//we create a React component
+const Name = (props) => {
+    const {name, bgColor} = props; //we deconstruct a JS object like this
+    //Below is the same as above
+    // const name = props.name
+    // const bgColor = props.bgColor
+    return React.createElement(
+        'div',
+        {
+            style: {
+                //we are still writing JS  here, but React can interpret it as CSS properties
+                //the only difference here is that instead of using kebab-case in css,
+                //we now use camelCase in JS
+                backgroundColor: bgColor
+            }
+        },
+        `${name}`
+    )
+}
+
 //Because the main.js script will be loaded before the html body, we need to make
 //sure that the document's content is loaded before we refer to it
 //(i.e. if you need to grab a div, in this case) To do this, we wrap it into an event listener:
@@ -34,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById("app");
     const root = ReactDOM.createRoot(container);
     root.render(
-        ourFirstElement
+        // ourFirstElement
+        Name({name: 'Matt', bgColor: 'pink'}) //now we can add an object to the function args as props
+        //instead of rendering out the React element, we now render out a React component
     )
 })
 
