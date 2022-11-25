@@ -7,7 +7,7 @@ class QuestionSerializer < ActiveModel::Serializer
 
   #attributes method provided by active model seriallizer gem, defines what gets returned as JSON within the method
   # https://github.com/rails-api/active_model_serializers/blob/v0.10.6/docs/general/serializers.md
-  attributes :id, :title, :body, :created_at, :updated_at, :view_count, :random_stuff, :like_count
+  attributes :id, :title, :body, :created_at, :updated_at, :view_count, :random_stuff, :like_count, :author_full_name
 
   #====Custom attributes======>
   def random_stuff
@@ -19,6 +19,10 @@ class QuestionSerializer < ActiveModel::Serializer
     object.likes.count
   end
 
+  def author_full_name
+    object.user&.full_name
+  end
+
   #======Associations=========>
   #to include associated models, we can use the same methods in Rails as we do for models like "has_many" or "belongs_to"
   has_many :answers
@@ -28,7 +32,7 @@ class QuestionSerializer < ActiveModel::Serializer
   # within the current serializer. This would replace any global serializer 
   # whenever we are serializing questions.
   class AnswerSerializer < ActiveModel::Serializer
-    attributes :id, :author_full_name
+    attributes :id, :author_full_name, :body, :created_at
     #customized method
     #rename user to author to make it more understandable for the person requesting data from our api
     def author_full_name
