@@ -23,7 +23,7 @@ class Api::V1::SessionsController < Api::ApplicationController
 
     def destroy
         session[:user_id] = nil
-        render json: "session destroyed"
+        render json: {id: nil}
     end
     #=====POSTMAN destroy====>
     #name: sessions#destroy
