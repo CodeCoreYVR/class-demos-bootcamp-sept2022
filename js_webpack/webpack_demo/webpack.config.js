@@ -22,6 +22,21 @@ module.exports = {
         path: path.join(__dirname, "build"),
         //the filename property is used to change the names of the bundles files
         filename: "[name].js"
+    },
+    module: {
+        //this is where we will have the configurations for the loaders
+        rules: [
+            {
+                loader: "file-loader",
+                test:/\.(png|jpg|gif|webp|svg)$/, //this is regex for the different types of image extensions that you will allow
+                options: {
+                    //if you don't specify options, the default is to compile everything into one JS file
+                    //instead, specify output to a new directory called outputImages where all the images will reside
+                    outputPath: "outputImages/",
+                    name: "[name].[ext]"
+                }
+            }
+        ]
     }
 }
 

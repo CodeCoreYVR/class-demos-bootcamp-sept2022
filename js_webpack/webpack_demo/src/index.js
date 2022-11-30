@@ -1,4 +1,5 @@
 import "./a.js"
+import llama from './images/llama.jpg';
 
 console.log("Hello World");
 
@@ -19,3 +20,9 @@ console.log("Goodbye World!")
 console.log("This does not run automatically if I don't have the --watch running")
 
 console.log("Added mode config to use development environment!")
+
+document.addEventListener("DOMContentLoaded", () => {
+    const img = document.createElement("img");
+    img.src = llama;
+    document.querySelector("body").append(img);
+})
