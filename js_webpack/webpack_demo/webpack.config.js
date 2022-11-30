@@ -1,4 +1,5 @@
 const path = require("path"); //you must specify this for the output
+const HTMLWebpackPlugin = require("html-webpack-plugin"); //have to require it from the installed nmp package to use it
 
 // Entry Points
 // https://webpack.js.org/concepts/entry-points
@@ -37,6 +38,14 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            title: "Webpack Demo", //<title> of the webpage
+            chunks: ["main"]
+            //chunks tells webpack which bundles to include in the html file
+            //in this case it will use the main.js file in the build directory
+        })
+    ]
 }
 
