@@ -7,6 +7,17 @@ const HTMLWebpackPlugin = require("html-webpack-plugin"); //have to require it f
 // Output
 // https://webpack.js.org/concepts/output
 
+// Loaders 
+// https://webpack.js.org/concepts/#loaders
+
+// Plugins
+// https://webpack.js.org/concepts/plugins
+
+// Mode
+// https://webpack.js.org/configuration/mode/
+
+
+
 module.exports = {
     mode: "development", //here you specify which environment mode to use - development or production
     //You can specify a path to an entry file in multiple ways:
@@ -36,6 +47,14 @@ module.exports = {
                     outputPath: "outputImages/",
                     name: "[name].[ext]"
                 }
+            },
+            {
+                //this is a bit different because we are using 2 loaders:
+                test: /\.css$/, //here we specify that we are using css files. You would need another for sass or other extensions used
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
             }
         ]
     },

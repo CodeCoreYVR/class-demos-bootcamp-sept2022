@@ -1,5 +1,6 @@
 import "./a.js"
 import llama from './images/llama.jpg';
+import "./styles/main.css"
 
 console.log("Hello World");
 
