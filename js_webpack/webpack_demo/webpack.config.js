@@ -55,6 +55,11 @@ module.exports = {
                     { loader: "style-loader" },
                     { loader: "css-loader" }
                 ]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/, //no need to have babel transfor files in node_modules directory
+                loader: "babel-loader"
             }
         ]
     },
