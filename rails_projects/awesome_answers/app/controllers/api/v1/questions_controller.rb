@@ -6,6 +6,8 @@ class Api::V1::QuestionsController < Api::ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+
     def index
         questions = Question.order(created_at: :desc)
         # render(json: questions)
@@ -122,5 +124,22 @@ class Api::V1::QuestionsController < Api::ApplicationController
             }
         )
     end
+
+    def record_invalid(error)
+        invalid_record = error.record
+        errors = invalid_record.errors.map do |field, message|
+            {
+                type: invalid_record.class.to_s,
+                field: field,
+                message: message
+            }
+        end
+        render(
+            json: { status: 422, errors: errors },
+            status: 422 #alias :unprocessable_entity
+        )
+    end
+
+
 end
 
