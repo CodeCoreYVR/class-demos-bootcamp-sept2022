@@ -4,6 +4,8 @@ class Api::V1::QuestionsController < Api::ApplicationController
 
     before_action :authenticate_user!, except: [:index, :show]
 
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
     def index
         questions = Question.order(created_at: :desc)
         # render(json: questions)
@@ -100,6 +102,25 @@ class Api::V1::QuestionsController < Api::ApplicationController
 
     def question_params
         params.require(:question).permit(:title, :body, :tag_names)
+    end
+
+    protected
+
+    #protected is like private except that it prevents
+    #decendent classes from using the protected methods
+
+    def record_not_found(error)
+        render(
+            status: 404, #alias :not_found
+            json: {
+                errors: [
+                    {
+                        type: error.class.to_s,
+                        message: error.message
+                    }
+                ]
+            }
+        )
     end
 end
 
