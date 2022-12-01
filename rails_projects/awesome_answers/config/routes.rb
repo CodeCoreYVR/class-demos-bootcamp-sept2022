@@ -140,6 +140,14 @@ Rails.application.routes.draw do
     # namespace :v2 do
     #   resources :questions
     # end
+
+    match "*unmatched_route", to:"application#not_found", via: :all
+    #This route will match any URL that hasn't been matched already
+    #inside the api namespace
+    #The * prefix in the route path allows this wildcard to match anything
+    #The via argument is required to specify whcih methods this route applies to
+    #example: via: [:get, :post, :patch]
+    #via all will match with all possible methods
   end
 
 end
