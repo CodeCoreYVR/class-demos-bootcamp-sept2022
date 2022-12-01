@@ -67,13 +67,13 @@ class Question < ApplicationRecord
     # - A column name as a symbol 
     # - Named arguments, corresponding to the validation rules
     
-    validates :title, presence: { message: "must be provided"} , uniqueness: {scope: :body}, length: { minimum: 2, maximum: 200 }
+    validates :title, presence: { message: "Title must be provided"} , uniqueness: {scope: :body}, length: { minimum: 2, maximum: 200, too_short: "Title must be 2 characters minimum" }
     #passing a default message
     #alternative for passing a message would be to use .errors.full_messages in console
     #unique to the scope of body means title doesn't need to be unique 
     #on its own, but does have to be unique in combination to the body
     
-    validates :body, presence: true
+    validates :body, presence: { message: "Body must be provided" }
 
     validates :view_count, numericality: { greater_or_equal_to: 0 }
 

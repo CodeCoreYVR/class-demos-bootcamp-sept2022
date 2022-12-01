@@ -41,14 +41,16 @@ class Api::V1::QuestionsController < Api::ApplicationController
         question = Question.new(question_params)
         # question.user = User.first #hard code user for now
         question.user = current_user
-        if question.save
-            render json: { id: question.id }
-        else
-            render(
-                json: {errors: question.errors.messages },
-                status: 422 #unprocessable entity HTTP status code
-            )
-        end
+        # if question.save
+        #     render json: { id: question.id }
+        # else
+        #     render(
+        #         json: {errors: question.errors.messages },
+        #         status: 422 #unprocessable entity HTTP status code
+        #     )
+        # end
+        question.save!
+        render json: {id: question.id}
     end
 
     #=====POSTMAN create====>
@@ -127,11 +129,11 @@ class Api::V1::QuestionsController < Api::ApplicationController
 
     def record_invalid(error)
         invalid_record = error.record
-        errors = invalid_record.errors.map do |field, message|
+        errors = invalid_record.errors.map do |errorObject|
             {
                 type: invalid_record.class.to_s,
-                field: field,
-                message: message
+                field: errorObject.attribute,
+                message: errorObject.options[:message]
             }
         end
         render(
@@ -139,6 +141,33 @@ class Api::V1::QuestionsController < Api::ApplicationController
             status: 422 #alias :unprocessable_entity
         )
     end
+
+    # def record_invalid(error)
+    #     #Our object should look something like this:
+    #     # json: {
+    #     #     errors: [
+    #     #         {
+    #     #             type: "ActiveRecord:InvalidRecord",
+    #     #             record_type: "Question",
+    #     #             field: "body",
+    #     #             message: "..."
+    #     #         }
+    #     #     ]
+    #     # }
+
+    #     invalid_record = error.record
+    #     errors = invalid_record.errors.map do |field, message|
+    #         {
+    #             type: invalid_record.class.to_s,
+    #             field: field,
+    #             message: message
+    #         }
+    #     end
+    #     render(
+    #         json: { status: 422, errors: errors },
+    #         status: 422 #alias :unprocessable_entity
+    #     )
+    # end
 
 
 end
