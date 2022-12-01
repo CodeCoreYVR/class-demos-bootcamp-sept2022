@@ -12,6 +12,8 @@ class Api::ApplicationController < ApplicationController
 
     rescue_from StandardError, with: :standard_error
 
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+
     def not_found
         render(
             json: {
@@ -50,5 +52,32 @@ class Api::ApplicationController < ApplicationController
             } 
         )
 
+    end
+
+    def record_invalid(error)
+        #Our object should look something like this:
+        # json: {
+        #     errors: [
+        #         {
+        #             type: "ActiveRecord:InvalidRecord",
+        #             record_type: "Question",
+        #             field: "body",
+        #             message: "..."
+        #         }
+        #     ]
+        # }
+
+        invalid_record = error.record
+        errors = invalid_record.errors.map do |field, message|
+            {
+                type: invalid_record.class.to_s,
+                field: field,
+                message: message
+            }
+        end
+        render(
+            json: { status: 422, errors: errors },
+            status: 422 #alias :unprocessable_entity
+        )
     end
 end
