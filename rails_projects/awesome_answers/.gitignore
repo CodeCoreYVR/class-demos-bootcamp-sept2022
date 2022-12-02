@@ -32,3 +32,5 @@
 
 #Ignore my app keys
 /config/initializers/app_keys.rb
+
+/config/initializers/api_keys.rb

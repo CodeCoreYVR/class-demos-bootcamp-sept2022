@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'callbacks/index'
   # get 'sessions/new'
   # get 'sessions/create'
   # get 'sessions/destroy'
@@ -149,5 +150,12 @@ Rails.application.routes.draw do
     #example: via: [:get, :post, :patch]
     #via all will match with all possible methods
   end
+
+  #OmniAuth Routes
+  get "/auth/github", as: :sign_in_with_github
+  get "/auth/:provider/callback", to: "callbacks#index" 
+  #note that :provider is dynamic, which will be replaced with the provider used to sign in
+  #:provider will allow us to use the same controller and action for different authentication systems
+  #such as github, twitter, facebook, etc.
 
 end
