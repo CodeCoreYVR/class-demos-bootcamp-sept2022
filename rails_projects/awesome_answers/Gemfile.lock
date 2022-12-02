@@ -119,8 +119,10 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
+    geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -286,6 +288,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    underscore-rails (1.8.3)
     user_agent_parser (2.13.0)
     version_gem (1.1.1)
     web-console (4.2.0)
@@ -314,6 +317,8 @@ DEPENDENCIES
   delayed_job_web
   factory_bot_rails
   faker
+  geocoder
+  gmaps4rails
   importmap-rails
   jbuilder
   letter_opener
@@ -332,6 +337,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  underscore-rails
   web-console
 
 RUBY VERSION

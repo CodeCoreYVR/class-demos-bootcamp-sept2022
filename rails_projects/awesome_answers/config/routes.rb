@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # on only one thing. Also there will be no index routes, and no route
   # will have an ':id' wildcard. But the controller name is still plural
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   # get 'users/new'
   # get 'users/create'
   

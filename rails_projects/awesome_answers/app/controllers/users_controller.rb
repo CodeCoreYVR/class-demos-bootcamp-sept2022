@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       :last_name,
       :email,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :address
     )
 
     if @user.save
@@ -21,5 +22,9 @@ class UsersController < ApplicationController
     else
       render :new, status: 303
     end
+  end
+
+  def show
+    @user = User.find params[:id]
   end
 end

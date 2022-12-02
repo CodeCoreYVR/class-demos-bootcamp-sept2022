@@ -1,0 +1,27 @@
+<h1>User Profile</h1>
+<h3>User name: <%= @user.full_name %></h3>
+<div style='width: 800px;'>
+    <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script>
+//This is to create the map and copied from: https://github.com/apneadiving/Google-Maps-for-Rails
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+        {
+        "lat": 48.8584, //hard coded from eiffel tower North coordinate
+        "lng": 2.2945,  //hard coded from eiffel tower East coordinate
+        "picture": {
+            "width":  32,
+            "height": 32
+        },
+        "infowindow": "Hello World"
+        }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(17); //we are adding this to zoom in a bit
+});
+</script>
+
