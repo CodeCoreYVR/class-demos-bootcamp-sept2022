@@ -1,11 +1,17 @@
 class User < ApplicationRecord
 
     #geocoding
+
+    #change address to coordinates
     geocoded_by :address
     #we are stating here that we are converting the address to geocode
     #when a user saves an address, it will automatically convert it to latitude and longitude coordinates as well
 
     after_validation :geocode
+
+    #change coordinates to address
+    reverse_geocoded_by :latitude, :longitude
+    after_validation :reverse_geocode
 
     has_secure_password
     #this is available to us because we uncommented bcrypt in the Gemfile
