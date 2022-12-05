@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Header from './components/Header'
 
 // To create this app: 
 // $ npm i -g expo-cli
@@ -14,9 +15,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.h1}>Pokedex</Text>
-      </View>
+      <Header />
       <View style={styles.body}>
         <Text>Hello World</Text>
       </View>
@@ -31,18 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  header: {
-    flex: 1,
-    backgroundColor: 'red',
-    width: '100%',
-    alignItems: 'center',
-    paddingTop: 25,
-    borderBottomWidth: 15
-  },
   body: {
     flex: 5
   },
-  h1: {
-    fontSize: 40
-  }
 });
