@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Header from './components/Header'
+import PokeList from './components/PokeList'
 
 // To create this app: 
 // $ npm i -g expo-cli
@@ -25,9 +26,8 @@ export default function App() {
     .then(res => res.json())
     .then(payload => {
       console.log(payload);
+      setPokeList(payload.results)
     })
-  
-   
   }, [])
   
 
@@ -35,7 +35,7 @@ export default function App() {
     <View style={styles.container}>
       <Header />
       <View style={styles.body}>
-        <Text>Hello World</Text>
+        <PokeList list={pokeList}/>
       </View>
       <StatusBar style="auto" />
     </View>
