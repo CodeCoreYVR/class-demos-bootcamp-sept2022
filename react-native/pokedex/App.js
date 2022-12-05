@@ -16,6 +16,20 @@ import PokemonDetails from "./components/PokemonDetails";
 // by checking if there is a .git file after you create the project.
 // cd pokedex
 // expo start
+// you can then hit "w" to open it in your browser, "i" to open ios emulator or "a" to open android emulator
+
+
+
+// -----Navigation---->
+// react-native does not work with urls, so therefore navigation works differently.  You need to install dependencies:
+// https://reactnavigation.org/docs/nesting-navigators
+// https://reactnavigation.org/docs/getting-started/
+
+// $ npm install @react-navigation/native
+// $ npm install @react-navigation/stack
+// $ expo install react-native-screens react-native-safe-area-context
+
+// $ npm install react-native-gesture-handler  <- this is also a required dependency for nav to work on mobile
 
 const Stack = createStackNavigator();
 
